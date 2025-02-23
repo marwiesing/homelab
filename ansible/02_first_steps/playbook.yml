@@ -1,0 +1,58 @@
+---
+- name: Troubleshoot Ansible Issues
+  hosts: all
+  gather_facts: yes
+  become: no
+
+  tasks:
+
+  - name: Check connectivity
+    ping:
+
+
+  - name: Check Python version
+    command: python3 --version
+    register: python_version
+    ignore_errors: yes
+
+  - name: Display Python version
+    debug:
+      msg: "Python version: {{ python_version.stdout | default('Not Found') }}"
+
+  - name: Check if required Python packages are installed
+    command: python3 -c "import six; print('six is installed')"
+    register: six_check
+    ignore_errors: yes
+
+  - name: Display six package status
+    debug:
+      msg: "{{ six_check.stdout | default('six is missing') }}"
+
+  - name: Check user executing the playbook
+    command: whoami
+    register: test_ansible_user
+
+  - name: Display Ansible executing user
+    debug:
+      msg: "{{ test_ansible_user.stdout }}"
+
+  - name: Check available disk space
+    command: df -h /
+    register: disk_space
+
+  - name: Display disk space
+    debug:
+      msg: "{{ disk_space.stdout_lines }}"
+
+  # OS-Specific Tasks
+  - name: "Ubuntu-specific task"
+    command: echo 'This is Ubuntu'
+    when: ansible_facts['distribution'] == "Ubuntu"
+
+  - name: "Rocky-specific task"
+    command: echo 'This is Rocky Linux'
+    when: ansible_facts['distribution'] == "Rocky"
+
+  - name: "Debian-specific task"
+    command: echo 'This is Debian'
+    when: ansible_facts['distribution'] == "Debian"

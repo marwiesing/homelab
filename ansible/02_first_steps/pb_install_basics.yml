@@ -1,0 +1,42 @@
+---
+- name: Install essential packages
+  hosts: all
+  become: yes
+  tasks:
+
+  # Update package lists based on OS
+  - name: Update package lists (Ubuntu)
+    apt:
+      update_cache: yes
+    when: ansible_facts['distribution'] == "Ubuntu"
+
+  - name: Update package lists (Debian)
+    apt:
+      update_cache: yes
+    when: ansible_facts['distribution'] == "Debian"
+
+  - name: Update package lists (Rocky Linux)
+    dnf:
+      update_cache: yes
+    when: ansible_facts['distribution'] == "Rocky"
+
+  # Ensure EPEL repository is enabled for Rocky Linux
+  - name: Ensure EPEL repository is enabled (Rocky Linux)
+    dnf:
+      name: epel-release
+      state: present
+    when: ansible_facts['distribution'] == "Rocky"
+
+  # Install common packages across all distributions
+  - name: Install common packages
+    package:
+      name:
+      - vim
+      - curl
+      - git
+      - htop
+      - tmux
+      - tree
+      - net-tools
+      - unzip
+      state: present

@@ -1,0 +1,54 @@
+---
+- name: Troubleshoot Ansible Issues
+  hosts: all
+  gather_facts: no
+  become: no  # Set to 'yes' if sudo is required
+
+  tasks:
+
+    - name: Check connectivity
+      ping:
+    
+    - name: Check Python version
+      command: python3 --version
+      register: python_version
+      ignore_errors: yes
+
+    - name: Display Python version
+      debug:
+        msg: "Python version: {{ python_version.stdout | default('Not Found') }}"
+
+    - name: "Check if required Python packages are installed"
+      command: python3 -c "import six; print('six is installed')"
+      register: six_check
+      ignore_errors: yes
+
+    - name: Display six package status
+      debug:
+        msg: "{{ six_check.stdout | default('six is missing') }}"
+
+    - name: "Check user executing the playbook"
+      command: "whoami"
+      register: test_ansible_user
+
+    - name: "Display Ansible executing user"
+      ansible.builtin.debug:
+        msg: "{{ test_ansible_user.stdout }}"
+
+#    - name: "Check if sudo is available"
+#      command: "sudo -n true"
+#      register: test_sudo_check
+#      ignore_errors: yes
+#
+#    - name: "Display sudo status"
+#      debug:
+#        msg: "{{ 'Sudo is available' if test_sudo_check.rc == 0 else 'Sudo is NOT available' }}"
+
+    - name: "Check available disk space"
+      command: "df -h /"
+      register: "disk_space"
+
+    - name: "Display disk space"
+      debug:
+        msg: "{{ disk_space.stdout_lines }}"
+

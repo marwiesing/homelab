@@ -1,0 +1,23 @@
+---
+- name: Check installed program versions
+  hosts: all
+  gather_facts: no
+  become: no # No need for sudo
+
+  tasks:
+
+  - name: Check versions of installed packages
+    command: "{{ item }} --version"
+    with_items:
+    - docker
+    - vim
+    - curl
+    - git
+    register: version_check
+    ignore_errors: yes # Prevent playbook failure if a command fails
+
+  - name: Display installed program versions
+    debug:
+      msg: "{{ item.stdout }}"
+    with_items: "{{ version_check.results }}"
+    when: item.rc == 0 # Only show successful checks

@@ -1,0 +1,579 @@
+2025-02-19 15:09:35,928 p=11995 u=marwiesing n=ansible | Starting galaxy role install process
+2025-02-19 15:09:36,212 p=11995 u=marwiesing n=ansible | - downloading role 'docker', owned by geerlingguy
+2025-02-19 15:09:36,765 p=11995 u=marwiesing n=ansible | - downloading role from https://github.com/geerlingguy/ansible-role-docker/archive/7.4.5.tar.gz
+2025-02-19 15:09:37,273 p=11995 u=marwiesing n=ansible | - extracting geerlingguy.docker to /home/marwiesing/.ansible/roles/geerlingguy.docker
+2025-02-19 15:09:37,280 p=11995 u=marwiesing n=ansible | - geerlingguy.docker (7.4.5) was installed successfully
+2025-02-19 15:09:47,758 p=11998 u=marwiesing n=ansible | ERROR! the playbook: pb_install_docker.yml could not be found
+2025-02-19 15:10:07,219 p=12012 u=marwiesing n=ansible | PLAY [Install Docker on all machines] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:07,226 p=12012 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:08,617 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:08,631 p=12012 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:10:08,643 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:08,677 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Load OS-specific vars.] **************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:08,724 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:08,737 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:08,744 p=12012 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:10:08,750 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:08,787 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:08,789 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:08,818 p=12012 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-RedHat.yml for rocky-01
+2025-02-19 15:10:08,833 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:10,106 p=12012 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:10:10,115 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker GPG key.] *****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:10,739 p=12012 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:10:10,748 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] **************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:11,333 p=12012 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:10:11,344 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Nightly repo.] ******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:11,751 p=12012 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:10:11,761 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Test repo.] *********************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:12,114 p=12012 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:10:12,123 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure runc is not installed.] *******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:12,166 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:12,181 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure container-selinux is installed.] **********************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:12,228 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:12,245 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure containerd.io is installed.] **************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:12,278 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:12,287 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:12,336 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:12,358 p=12012 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-Debian.yml for ubuntu-01, ubuntu-02
+2025-02-19 15:10:12,368 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure apt key is not present in trusted.gpg.d] **************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:12,762 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:12,765 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:12,769 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old apt source list is not present in /etc/apt/sources.list.d] ****************************************************************************************************************************************************************************************
+2025-02-19 15:10:13,083 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:13,132 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:13,138 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure the repo referencing the previous trusted.gpg.d key is not present] ***********************************************************************************************************************************************************************************
+2025-02-19 15:10:13,722 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:13,769 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:13,778 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:14,602 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:14,613 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:14,617 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure dependencies are installed.] **************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:15,497 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:16,867 p=12012 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:10:16,870 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure directory exists for /etc/apt/keyrings] ***************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:17,202 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:17,203 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:17,214 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key.] *****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:17,710 p=12012 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 15:10:17,765 p=12012 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:10:17,772 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure curl is present (on older systems without SNI).] ******************************************************************************************************************************************************************************************************
+2025-02-19 15:10:17,838 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:17,852 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:17,858 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key (alternative for older systems without SNI).] *********************************************************************************************************************************************************************************************
+2025-02-19 15:10:17,923 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:17,930 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:17,935 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] **************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:20,318 p=12012 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:10:20,506 p=12012 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 15:10:20,509 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages.] ************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:20,548 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:20,560 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:20,569 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:20,610 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages (with downgrade option).] ************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:39,584 p=12012 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:10:40,401 p=12012 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 15:10:55,180 p=12012 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:10:55,184 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose plugin.] ******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:55,234 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:55,261 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:55,273 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:55,283 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose-plugin (with downgrade option).] ******************************************************************************************************************************************************************************************************
+2025-02-19 15:10:56,305 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:56,362 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:56,400 p=12012 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:10:56,408 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure /etc/docker/ directory exists.] ***********************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:56,481 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:56,482 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:56,493 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:56,502 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker daemon options.] ****************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:56,583 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:10:56,586 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:10:56,609 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:10:56,620 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure Docker is started and enabled at boot.] ***************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:57,331 p=12012 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:10:57,339 p=12012 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:10:58,668 p=12012 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:10:58,673 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] ***********************************************************************************************************************************************************************************************
+2025-02-19 15:10:58,678 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] ***********************************************************************************************************************************************************************************************
+2025-02-19 15:10:58,684 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] ***********************************************************************************************************************************************************************************************
+2025-02-19 15:10:58,689 p=12012 u=marwiesing n=ansible | RUNNING HANDLER [geerlingguy.docker : restart docker] ***********************************************************************************************************************************************************************************************************************************
+2025-02-19 15:10:59,787 p=12012 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 15:10:59,915 p=12012 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:11:00,376 p=12012 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:11:00,380 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:11:00,437 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:11:00,437 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:11:00,457 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:11:00,464 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Get docker group info using getent.] *************************************************************************************************************************************************************************************************************************
+2025-02-19 15:11:00,542 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:11:00,546 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:11:00,576 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:11:00,584 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : Check if there are any users to add to the docker group.] ****************************************************************************************************************************************************************************************************
+2025-02-19 15:11:00,611 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:11:00,636 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:11:00,647 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:11:00,657 p=12012 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:11:00,692 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:11:00,712 p=12012 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:11:00,722 p=12012 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:11:00,745 p=12012 u=marwiesing n=ansible | TASK [Add user marwiesing to the docker group] ******************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:11:01,345 p=12012 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:11:01,366 p=12012 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 15:11:01,391 p=12012 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:11:01,443 p=12012 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:11:01,443 p=12012 u=marwiesing n=ansible | rocky-01                   : ok=13   changed=6    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-02-19 15:11:01,444 p=12012 u=marwiesing n=ansible | ubuntu-01                  : ok=16   changed=5    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-02-19 15:11:01,444 p=12012 u=marwiesing n=ansible | ubuntu-02                  : ok=16   changed=6    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-02-19 15:14:37,149 p=12405 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: localhost
+
+2025-02-19 15:14:37,304 p=12405 u=marwiesing n=ansible | PLAY [Install Docker on all machines] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:37,310 p=12405 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:38,745 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:38,771 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:38,779 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:38,791 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:38,830 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Load OS-specific vars.] **************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:38,885 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:38,901 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:38,917 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:38,917 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:38,925 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:38,974 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:14:38,990 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:14:39,004 p=12405 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:14:39,020 p=12405 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-RedHat.yml for rocky-01
+2025-02-19 15:14:39,031 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:40,056 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:40,069 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker GPG key.] *****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:40,645 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:40,656 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] **************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:41,227 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:41,237 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Nightly repo.] ******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:41,653 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:41,663 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Test repo.] *********************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:41,994 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:14:42,005 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure runc is not installed.] *******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:42,040 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:14:42,049 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure container-selinux is installed.] **********************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:42,083 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:14:42,092 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure containerd.io is installed.] **************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:42,126 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:14:42,130 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:42,197 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:14:42,235 p=12405 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-Debian.yml for ubuntu-01, ubuntu-02, localhost
+2025-02-19 15:14:42,246 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure apt key is not present in trusted.gpg.d] **************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:42,686 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:42,715 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:42,721 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:42,729 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old apt source list is not present in /etc/apt/sources.list.d] ****************************************************************************************************************************************************************************************
+2025-02-19 15:14:43,096 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:43,141 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:43,183 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:43,193 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure the repo referencing the previous trusted.gpg.d key is not present] ***********************************************************************************************************************************************************************************
+2025-02-19 15:14:43,836 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:43,850 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:43,868 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:43,875 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:44,721 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:44,763 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:44,875 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:44,881 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure dependencies are installed.] **************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:45,830 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:45,860 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:46,036 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:46,043 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure directory exists for /etc/apt/keyrings] ***************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:46,384 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:46,432 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:46,516 p=12405 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:14:46,522 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key.] *****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:46,993 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:47,077 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:14:47,181 p=12405 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 15:14:47,189 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure curl is present (on older systems without SNI).] ******************************************************************************************************************************************************************************************************
+2025-02-19 15:14:47,283 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:14:47,293 p=12405 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:14:47,297 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:14:47,302 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key (alternative for older systems without SNI).] *********************************************************************************************************************************************************************************************
+2025-02-19 15:14:47,362 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:14:47,380 p=12405 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:14:47,399 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:14:47,407 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] **************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:14:47,918 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:14:47,955 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:15:23,814 p=12405 u=marwiesing n=ansible | fatal: [localhost]: FAILED! => changed=false 
+  msg: 'Failed to update apt cache: W:Updating from such a repository can''t be done securely, and is therefore disabled by default., W:See apt-secure(8) manpage for repository creation and user configuration details., E:The repository ''https://download.docker.com/linux/ubuntu xia Release'' does not have a Release file.'
+2025-02-19 15:15:23,819 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages.] ************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:23,855 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:23,856 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:23,879 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:23,890 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages (with downgrade option).] ************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:24,867 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:15:24,916 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:15:25,029 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:15:25,039 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose plugin.] ******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:25,110 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:25,129 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:25,140 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:25,150 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose-plugin (with downgrade option).] ******************************************************************************************************************************************************************************************************
+2025-02-19 15:15:26,151 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:15:26,208 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:15:26,357 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:15:26,362 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure /etc/docker/ directory exists.] ***********************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:26,430 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:26,451 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:26,472 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:26,481 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker daemon options.] ****************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:26,528 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:26,559 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:26,571 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:26,580 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure Docker is started and enabled at boot.] ***************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,273 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:15:27,274 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:15:27,301 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:15:27,307 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] ***********************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,318 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] ***********************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,325 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] ***********************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,334 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,398 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:27,428 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:27,432 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:27,436 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Get docker group info using getent.] *************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,495 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:27,501 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:27,524 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:27,533 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : Check if there are any users to add to the docker group.] ****************************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,560 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:27,583 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:27,591 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:27,600 p=12405 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:27,660 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:15:27,667 p=12405 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:15:27,687 p=12405 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:15:27,711 p=12405 u=marwiesing n=ansible | TASK [Add user marwiesing to the docker group] ******************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:28,229 p=12405 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:15:28,230 p=12405 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:15:28,250 p=12405 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:15:28,305 p=12405 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:15:28,306 p=12405 u=marwiesing n=ansible | localhost                  : ok=10   changed=1    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+2025-02-19 15:15:28,306 p=12405 u=marwiesing n=ansible | rocky-01                   : ok=12   changed=0    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-02-19 15:15:28,307 p=12405 u=marwiesing n=ansible | ubuntu-01                  : ok=15   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-02-19 15:15:28,307 p=12405 u=marwiesing n=ansible | ubuntu-02                  : ok=15   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-02-19 15:25:15,996 p=15218 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: localhost
+
+2025-02-19 15:25:16,149 p=15218 u=marwiesing n=ansible | PLAY [Install Docker on all machines] **************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:16,156 p=15218 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:17,617 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:17,666 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:17,687 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:17,692 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:17,702 p=15218 u=marwiesing n=ansible | TASK [Set Ubuntu repository for Linux Mint] ********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:17,729 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:25:17,757 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:25:17,765 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:25:17,766 p=15218 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:25:17,791 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Load OS-specific vars.] *************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:17,857 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:17,860 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:17,868 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:17,879 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:17,883 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:17,905 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:25:17,927 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:25:17,946 p=15218 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:25:17,956 p=15218 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-RedHat.yml for rocky-01
+2025-02-19 15:25:17,967 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ***********************************************************************************************************************************************************************************************************
+2025-02-19 15:25:18,990 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:19,000 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker GPG key.] ****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:19,606 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:19,615 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] *************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:20,188 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:20,197 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Nightly repo.] *****************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:20,626 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:20,638 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Test repo.] ********************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:20,995 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:25:21,005 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure runc is not installed.] ******************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:21,033 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:25:21,041 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure container-selinux is installed.] *********************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:21,076 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:25:21,088 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure containerd.io is installed.] *************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:21,138 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:25:21,145 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:21,206 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:25:21,237 p=15218 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-Debian.yml for ubuntu-01, ubuntu-02, localhost
+2025-02-19 15:25:21,249 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure apt key is not present in trusted.gpg.d] *************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:21,722 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:21,728 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:21,736 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:21,741 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old apt source list is not present in /etc/apt/sources.list.d] ***************************************************************************************************************************************************************************************
+2025-02-19 15:25:22,103 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:22,135 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:22,224 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:22,266 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure the repo referencing the previous trusted.gpg.d key is not present] **********************************************************************************************************************************************************************************
+2025-02-19 15:25:22,917 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:22,921 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:22,931 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:22,937 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ***********************************************************************************************************************************************************************************************************
+2025-02-19 15:25:23,753 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:23,812 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:24,771 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:24,776 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure dependencies are installed.] *************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:25,733 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:25,745 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:26,014 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:26,019 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure directory exists for /etc/apt/keyrings] **************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:26,340 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:26,387 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:26,466 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:26,475 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key.] ****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:26,941 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:25:26,996 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:27,030 p=15218 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:25:27,037 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure curl is present (on older systems without SNI).] *****************************************************************************************************************************************************************************************************
+2025-02-19 15:25:27,097 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:25:27,119 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:25:27,135 p=15218 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:25:27,147 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key (alternative for older systems without SNI).] ********************************************************************************************************************************************************************************************
+2025-02-19 15:25:27,222 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:25:27,252 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:25:27,268 p=15218 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 15:25:27,274 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] *************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:25:27,777 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:25:27,824 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:26:02,774 p=15218 u=marwiesing n=ansible | fatal: [localhost]: FAILED! => changed=false 
+  msg: 'Failed to update apt cache: W:Updating from such a repository can''t be done securely, and is therefore disabled by default., W:See apt-secure(8) manpage for repository creation and user configuration details., E:The repository ''https://download.docker.com/linux/ubuntu xia Release'' does not have a Release file.'
+2025-02-19 15:26:02,779 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages.] ***********************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:02,825 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:02,831 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:02,842 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:02,848 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages (with downgrade option).] ***********************************************************************************************************************************************************************************************************
+2025-02-19 15:26:03,881 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:26:03,898 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:26:03,992 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:26:03,996 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose plugin.] *****************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:04,049 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:04,058 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:04,096 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:04,102 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose-plugin (with downgrade option).] *****************************************************************************************************************************************************************************************************
+2025-02-19 15:26:05,086 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:26:05,136 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:26:05,300 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:26:05,304 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure /etc/docker/ directory exists.] **********************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:05,345 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:05,370 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:05,384 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:05,389 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker daemon options.] ***************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:05,445 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:05,469 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:05,484 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:05,489 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure Docker is started and enabled at boot.] **************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,210 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:26:06,222 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:26:06,227 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:26:06,231 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,236 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,241 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,246 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,364 p=15218 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/docker-compose.yml for ubuntu-01, rocky-01, ubuntu-02
+2025-02-19 15:26:06,382 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Check current docker-compose version.] **********************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,851 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:26:06,867 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:26:06,909 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:26:06,917 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : set_fact] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:06,985 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:07,019 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:07,031 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:07,038 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Delete existing docker-compose version if it's different.] **************************************************************************************************************************************************************************************************
+2025-02-19 15:26:07,116 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:07,145 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:07,151 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:07,157 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker Compose (if configured).] ********************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:13,336 p=15218 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 15:26:13,763 p=15218 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 15:26:13,858 p=15218 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 15:26:13,865 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Get docker group info using getent.] ************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:14,328 p=15218 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 15:26:14,329 p=15218 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 15:26:14,363 p=15218 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 15:26:14,369 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : Check if there are any users to add to the docker group.] ***************************************************************************************************************************************************************************************************
+2025-02-19 15:26:14,477 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01] => (item=marwiesing) 
+2025-02-19 15:26:14,479 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:14,483 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02] => (item=marwiesing) 
+2025-02-19 15:26:14,486 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:14,493 p=15218 u=marwiesing n=ansible | skipping: [rocky-01] => (item=marwiesing) 
+2025-02-19 15:26:14,494 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:14,499 p=15218 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:14,520 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 15:26:14,543 p=15218 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 15:26:14,566 p=15218 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 15:26:14,632 p=15218 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:26:14,632 p=15218 u=marwiesing n=ansible | localhost                  : ok=10   changed=0    unreachable=0    failed=1    skipped=4    rescued=0    ignored=0   
+2025-02-19 15:26:14,633 p=15218 u=marwiesing n=ansible | rocky-01                   : ok=15   changed=1    unreachable=0    failed=0    skipped=13   rescued=0    ignored=0   
+2025-02-19 15:26:14,633 p=15218 u=marwiesing n=ansible | ubuntu-01                  : ok=18   changed=1    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-02-19 15:26:14,633 p=15218 u=marwiesing n=ansible | ubuntu-02                  : ok=18   changed=1    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-02-19 15:29:19,831 p=18067 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: localhost
+
+2025-02-19 15:29:20,012 p=18067 u=marwiesing n=ansible | PLAY [Install Docker on Linux Mint] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:20,017 p=18067 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:21,136 p=18067 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:29:21,144 p=18067 u=marwiesing n=ansible | TASK [Install required dependencies] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:23,106 p=18067 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:29:23,112 p=18067 u=marwiesing n=ansible | TASK [Add Docker GPG Key] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:23,715 p=18067 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 15:29:23,721 p=18067 u=marwiesing n=ansible | TASK [Add Docker repository (forcing Ubuntu repo)] *************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:26,072 p=18067 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 15:29:26,077 p=18067 u=marwiesing n=ansible | TASK [Install Docker] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:41,813 p=18067 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 15:29:41,830 p=18067 u=marwiesing n=ansible | TASK [Add user marwiesing to the docker group] *****************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:42,430 p=18067 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 15:29:42,438 p=18067 u=marwiesing n=ansible | TASK [Enable and start Docker service] *************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:43,178 p=18067 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 15:29:43,202 p=18067 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 15:29:43,203 p=18067 u=marwiesing n=ansible | localhost                  : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-20 09:27:22,230 p=23851 u=marwiesing n=ansible | PLAY [Install Docker on all machines] **************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:22,237 p=23851 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:23,517 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:23,701 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:23,711 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:23,736 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:23,777 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Load OS-specific vars.] *************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:23,825 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:23,843 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:23,861 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:23,862 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:23,871 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:23,919 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:23,940 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:23,952 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:23,965 p=23851 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-RedHat.yml for rocky-01
+2025-02-20 09:27:23,976 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ***********************************************************************************************************************************************************************************************************
+2025-02-20 09:27:24,962 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:24,974 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker GPG key.] ****************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:25,615 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:25,624 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] *************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:26,217 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:26,231 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Nightly repo.] *****************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:26,657 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:26,665 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker Test repo.] ********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:27,004 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:27,014 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure runc is not installed.] ******************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:27,051 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:27,063 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure container-selinux is installed.] *********************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:27,112 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:27,125 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure containerd.io is installed.] *************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:27,168 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:27,173 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:27,244 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:27,273 p=23851 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.docker/tasks/setup-Debian.yml for ubuntu-01, ubuntu-02, debian-01
+2025-02-20 09:27:27,280 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure apt key is not present in trusted.gpg.d] *************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:27,736 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:27,788 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:27,802 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:27,809 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old apt source list is not present in /etc/apt/sources.list.d] ***************************************************************************************************************************************************************************************
+2025-02-20 09:27:28,192 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:28,193 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:28,211 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:28,219 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure the repo referencing the previous trusted.gpg.d key is not present] **********************************************************************************************************************************************************************************
+2025-02-20 09:27:28,959 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:28,964 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:29,128 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:29,138 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure old versions of Docker are not installed.] ***********************************************************************************************************************************************************************************************************
+2025-02-20 09:27:29,946 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:30,070 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:30,070 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:30,076 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure dependencies are installed.] *************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:31,053 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:31,215 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:32,036 p=23851 u=marwiesing n=ansible | changed: [debian-01]
+2025-02-20 09:27:32,044 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure directory exists for /etc/apt/keyrings] **************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:32,411 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:32,430 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:32,442 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:32,451 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key.] ****************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:32,993 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:33,009 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:33,069 p=23851 u=marwiesing n=ansible | changed: [debian-01]
+2025-02-20 09:27:33,076 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure curl is present (on older systems without SNI).] *****************************************************************************************************************************************************************************************************
+2025-02-20 09:27:33,151 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:33,169 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:33,196 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:33,208 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker apt key (alternative for older systems without SNI).] ********************************************************************************************************************************************************************************************
+2025-02-20 09:27:33,274 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:33,297 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:33,325 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:33,336 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Add Docker repository.] *************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:33,871 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:33,872 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:35,149 p=23851 u=marwiesing n=ansible | changed: [debian-01]
+2025-02-20 09:27:35,154 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages.] ***********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:35,193 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:35,225 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:35,226 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:35,249 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:35,256 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install Docker packages (with downgrade option).] ***********************************************************************************************************************************************************************************************************
+2025-02-20 09:27:36,512 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:36,614 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:36,666 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:48,363 p=23851 u=marwiesing n=ansible | changed: [debian-01]
+2025-02-20 09:27:48,369 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose plugin.] *****************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:48,444 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:48,465 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:48,487 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:48,500 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:48,507 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Install docker-compose-plugin (with downgrade option).] *****************************************************************************************************************************************************************************************************
+2025-02-20 09:27:49,689 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:49,714 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:49,751 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:49,835 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:49,842 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure /etc/docker/ directory exists.] **********************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:49,933 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:49,972 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:49,974 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:49,981 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:49,989 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Configure Docker daemon options.] ***************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:50,083 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:50,116 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:50,129 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:50,140 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:50,154 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure Docker is started and enabled at boot.] **************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:50,942 p=23851 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:27:51,009 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:51,036 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:51,059 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:51,069 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-20 09:27:51,076 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-20 09:27:51,082 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-20 09:27:51,090 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Ensure handlers are notified now to avoid firewall conflicts.] **********************************************************************************************************************************************************************************************
+2025-02-20 09:27:51,100 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:51,167 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:51,207 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:51,230 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:52,738 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:52,738 p=23851 u=marwiesing n=ansible | changed: [debian-01]
+2025-02-20 09:27:52,752 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:52,785 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:52,790 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Get docker group info using getent.] ************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:52,878 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:52,888 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:52,903 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:52,934 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:52,946 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : Check if there are any users to add to the docker group.] ***************************************************************************************************************************************************************************************************
+2025-02-20 09:27:53,001 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:53,021 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:53,023 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:53,036 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:53,043 p=23851 u=marwiesing n=ansible | TASK [geerlingguy.docker : include_tasks] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:53,105 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:27:53,111 p=23851 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:27:53,114 p=23851 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:27:53,135 p=23851 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:27:53,171 p=23851 u=marwiesing n=ansible | TASK [Add user marwiesing to the docker group] *****************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:53,779 p=23851 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:27:53,792 p=23851 u=marwiesing n=ansible | changed: [debian-01]
+2025-02-20 09:27:53,802 p=23851 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:27:53,836 p=23851 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:27:53,906 p=23851 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:27:53,906 p=23851 u=marwiesing n=ansible | debian-01                  : ok=16   changed=6    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-02-20 09:27:53,906 p=23851 u=marwiesing n=ansible | rocky-01                   : ok=12   changed=0    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2025-02-20 09:27:53,906 p=23851 u=marwiesing n=ansible | ubuntu-01                  : ok=15   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   
+2025-02-20 09:27:53,906 p=23851 u=marwiesing n=ansible | ubuntu-02                  : ok=15   changed=0    unreachable=0    failed=0    skipped=11   rescued=0    ignored=0   

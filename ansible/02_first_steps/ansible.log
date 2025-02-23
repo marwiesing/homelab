@@ -1,0 +1,892 @@
+2025-02-19 10:56:23,858 p=6031 u=marwiesing n=ansible | PLAY [Troubleshoot Ansible Issues] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:23,863 p=6031 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:25,252 p=6031 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 10:56:25,253 p=6031 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 10:56:25,266 p=6031 u=marwiesing n=ansible | [WARNING]: Platform linux on host localhost is using the discovered Python interpreter at /usr/bin/python3.12, but future installation of another Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.16/reference_appendices/interpreter_discovery.html for more information.
+
+2025-02-19 10:56:25,266 p=6031 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 10:56:25,271 p=6031 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 10:56:25,292 p=6031 u=marwiesing n=ansible | TASK [Check connectivity] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:25,752 p=6031 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 10:56:25,756 p=6031 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 10:56:25,761 p=6031 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 10:56:25,817 p=6031 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 10:56:25,824 p=6031 u=marwiesing n=ansible | TASK [Check Python version] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:26,280 p=6031 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 10:56:26,287 p=6031 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 10:56:26,297 p=6031 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 10:56:26,325 p=6031 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 10:56:26,334 p=6031 u=marwiesing n=ansible | TASK [Display Python version] ***********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:26,417 p=6031 u=marwiesing n=ansible | ok: [ubuntu-01] => {
+    "msg": "Python version: Python 3.12.3"
+}
+2025-02-19 10:56:26,448 p=6031 u=marwiesing n=ansible | ok: [ubuntu-02] => {
+    "msg": "Python version: Python 3.12.3"
+}
+2025-02-19 10:56:26,462 p=6031 u=marwiesing n=ansible | ok: [rocky-01] => {
+    "msg": "Python version: Python 3.9.19"
+}
+2025-02-19 10:56:26,465 p=6031 u=marwiesing n=ansible | ok: [localhost] => {
+    "msg": "Python version: Python 3.12.3"
+}
+2025-02-19 10:56:26,468 p=6031 u=marwiesing n=ansible | TASK [Check if required Python packages are installed] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:26,897 p=6031 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 10:56:26,903 p=6031 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 10:56:26,969 p=6031 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 10:56:26,973 p=6031 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 10:56:26,981 p=6031 u=marwiesing n=ansible | TASK [Display six package status] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:27,045 p=6031 u=marwiesing n=ansible | ok: [ubuntu-01] => {
+    "msg": "six is installed"
+}
+2025-02-19 10:56:27,094 p=6031 u=marwiesing n=ansible | ok: [localhost] => {
+    "msg": "six is installed"
+}
+2025-02-19 10:56:27,109 p=6031 u=marwiesing n=ansible | ok: [ubuntu-02] => {
+    "msg": "six is installed"
+}
+2025-02-19 10:56:27,116 p=6031 u=marwiesing n=ansible | ok: [rocky-01] => {
+    "msg": "six is installed"
+}
+2025-02-19 10:56:27,125 p=6031 u=marwiesing n=ansible | TASK [Check user executing the playbook] ************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:27,501 p=6031 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 10:56:27,554 p=6031 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 10:56:27,584 p=6031 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 10:56:27,600 p=6031 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 10:56:27,607 p=6031 u=marwiesing n=ansible | TASK [Display Ansible executing user] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:27,652 p=6031 u=marwiesing n=ansible | ok: [ubuntu-01] => {
+    "msg": "marwiesing"
+}
+2025-02-19 10:56:27,672 p=6031 u=marwiesing n=ansible | ok: [rocky-01] => {
+    "msg": "marwiesing"
+}
+2025-02-19 10:56:27,673 p=6031 u=marwiesing n=ansible | ok: [ubuntu-02] => {
+    "msg": "marwiesing"
+}
+2025-02-19 10:56:27,684 p=6031 u=marwiesing n=ansible | ok: [localhost] => {
+    "msg": "marwiesing"
+}
+2025-02-19 10:56:27,688 p=6031 u=marwiesing n=ansible | TASK [Check available disk space] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:28,061 p=6031 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 10:56:28,141 p=6031 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 10:56:28,149 p=6031 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 10:56:28,156 p=6031 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 10:56:28,163 p=6031 u=marwiesing n=ansible | TASK [Display disk space] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:28,208 p=6031 u=marwiesing n=ansible | ok: [ubuntu-01] => {
+    "msg": [
+        "Filesystem                         Size  Used Avail Use% Mounted on",
+        "/dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.4G   23G  22% /"
+    ]
+}
+2025-02-19 10:56:28,227 p=6031 u=marwiesing n=ansible | ok: [ubuntu-02] => {
+    "msg": [
+        "Filesystem                         Size  Used Avail Use% Mounted on",
+        "/dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.0G   23G  21% /"
+    ]
+}
+2025-02-19 10:56:28,228 p=6031 u=marwiesing n=ansible | ok: [rocky-01] => {
+    "msg": [
+        "Filesystem           Size  Used Avail Use% Mounted on",
+        "/dev/mapper/rl-root   38G  1.5G   37G   4% /"
+    ]
+}
+2025-02-19 10:56:28,242 p=6031 u=marwiesing n=ansible | ok: [localhost] => {
+    "msg": [
+        "Filesystem      Size  Used Avail Use% Mounted on",
+        "/dev/sda3        31G   14G   16G  46% /"
+    ]
+}
+2025-02-19 10:56:28,249 p=6031 u=marwiesing n=ansible | TASK [Ubuntu-specific task] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:28,332 p=6031 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 10:56:28,346 p=6031 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 10:56:28,556 p=6031 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 10:56:28,594 p=6031 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 10:56:28,598 p=6031 u=marwiesing n=ansible | TASK [Rocky-specific task] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:28,626 p=6031 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 10:56:28,644 p=6031 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 10:56:28,660 p=6031 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 10:56:28,927 p=6031 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 10:56:28,987 p=6031 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 10:56:28,987 p=6031 u=marwiesing n=ansible | localhost                  : ok=10   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 10:56:28,987 p=6031 u=marwiesing n=ansible | rocky-01                   : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 10:56:28,987 p=6031 u=marwiesing n=ansible | ubuntu-01                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 10:56:28,987 p=6031 u=marwiesing n=ansible | ubuntu-02                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:02:57,957 p=7428 u=marwiesing n=ansible | [DEPRECATION WARNING]: ansible.posix.skippy has been deprecated. See the plugin
+ documentation for more details. This feature will be removed from 
+ansible.posix in a release after 2022-06-01. Deprecation warnings can be 
+disabled by setting deprecation_warnings=False in ansible.cfg.
+2025-02-19 11:03:24,192 p=7432 u=marwiesing n=ansible | PLAY [Troubleshoot Ansible Issues] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:24,198 p=7432 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:25,440 p=7432 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 11:03:25,453 p=7432 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:03:25,461 p=7432 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:03:26,451 p=7432 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:03:26,476 p=7432 u=marwiesing n=ansible | TASK [Check connectivity] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:26,950 p=7432 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:03:26,958 p=7432 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:03:26,967 p=7432 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 11:03:26,976 p=7432 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:03:26,982 p=7432 u=marwiesing n=ansible | TASK [Check Python version] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:27,471 p=7432 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:03:27,499 p=7432 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:03:27,533 p=7432 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:03:27,549 p=7432 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:03:27,558 p=7432 u=marwiesing n=ansible | TASK [Display Python version] ***********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:27,640 p=7432 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:03:27,668 p=7432 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: 'Python version: Python 3.9.19'
+2025-02-19 11:03:27,670 p=7432 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:03:27,677 p=7432 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:03:27,685 p=7432 u=marwiesing n=ansible | TASK [Check if required Python packages are installed] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:28,030 p=7432 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:03:28,102 p=7432 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:03:28,195 p=7432 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:03:28,196 p=7432 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:03:28,200 p=7432 u=marwiesing n=ansible | TASK [Display six package status] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:28,286 p=7432 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: six is installed
+2025-02-19 11:03:28,309 p=7432 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: six is installed
+2025-02-19 11:03:28,330 p=7432 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: six is installed
+2025-02-19 11:03:28,345 p=7432 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: six is installed
+2025-02-19 11:03:28,351 p=7432 u=marwiesing n=ansible | TASK [Check user executing the playbook] ************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:28,729 p=7432 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:03:28,737 p=7432 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:03:28,828 p=7432 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:03:28,848 p=7432 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:03:28,855 p=7432 u=marwiesing n=ansible | TASK [Display Ansible executing user] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:28,897 p=7432 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: marwiesing
+2025-02-19 11:03:28,909 p=7432 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: marwiesing
+2025-02-19 11:03:28,916 p=7432 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: marwiesing
+2025-02-19 11:03:28,922 p=7432 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: marwiesing
+2025-02-19 11:03:28,926 p=7432 u=marwiesing n=ansible | TASK [Check available disk space] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:29,305 p=7432 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:03:29,314 p=7432 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:03:29,392 p=7432 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:03:29,410 p=7432 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:03:29,419 p=7432 u=marwiesing n=ansible | TASK [Display disk space] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:29,464 p=7432 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.4G   23G  22% /
+2025-02-19 11:03:29,481 p=7432 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.0G   23G  21% /
+2025-02-19 11:03:29,485 p=7432 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg:
+  - Filesystem           Size  Used Avail Use% Mounted on
+  - /dev/mapper/rl-root   38G  1.5G   37G   4% /
+2025-02-19 11:03:29,489 p=7432 u=marwiesing n=ansible | ok: [localhost] => 
+  msg:
+  - Filesystem      Size  Used Avail Use% Mounted on
+  - /dev/sda3        31G   14G   16G  46% /
+2025-02-19 11:03:29,497 p=7432 u=marwiesing n=ansible | TASK [Ubuntu-specific task] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:29,608 p=7432 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:03:29,618 p=7432 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 11:03:29,790 p=7432 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:03:29,852 p=7432 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:03:29,862 p=7432 u=marwiesing n=ansible | TASK [Rocky-specific task] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:29,885 p=7432 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:03:29,905 p=7432 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:03:29,950 p=7432 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 11:03:30,224 p=7432 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:03:30,276 p=7432 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:03:30,276 p=7432 u=marwiesing n=ansible | localhost                  : ok=10   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 11:03:30,276 p=7432 u=marwiesing n=ansible | rocky-01                   : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:03:30,276 p=7432 u=marwiesing n=ansible | ubuntu-01                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:03:30,276 p=7432 u=marwiesing n=ansible | ubuntu-02                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:08:13,936 p=7889 u=marwiesing n=ansible | [DEPRECATION WARNING]: ansible.posix.skippy has been deprecated. See the plugin
+ documentation for more details. This feature will be removed from 
+ansible.posix in a release after 2022-06-01. Deprecation warnings can be 
+disabled by setting deprecation_warnings=False in ansible.cfg.
+2025-02-19 11:09:14,897 p=7912 u=marwiesing n=ansible | PLAY [Troubleshoot Ansible Issues] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:14,903 p=7912 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:16,183 p=7912 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:09:16,263 p=7912 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:09:16,263 p=7912 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 11:09:16,269 p=7912 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:09:16,302 p=7912 u=marwiesing n=ansible | TASK [Check connectivity] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:16,734 p=7912 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:09:16,753 p=7912 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 11:09:16,770 p=7912 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:09:16,788 p=7912 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:09:16,796 p=7912 u=marwiesing n=ansible | TASK [Check Python version] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:17,267 p=7912 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:09:17,273 p=7912 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:09:17,284 p=7912 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:09:17,332 p=7912 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:09:17,342 p=7912 u=marwiesing n=ansible | TASK [Display Python version] ***********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:17,435 p=7912 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:09:17,461 p=7912 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: 'Python version: Python 3.9.19'
+2025-02-19 11:09:17,476 p=7912 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:09:17,504 p=7912 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:09:17,508 p=7912 u=marwiesing n=ansible | TASK [Check if required Python packages are installed] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:17,894 p=7912 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:09:17,906 p=7912 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:09:17,951 p=7912 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:09:17,977 p=7912 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:09:17,984 p=7912 u=marwiesing n=ansible | TASK [Display six package status] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:18,061 p=7912 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: six is installed
+2025-02-19 11:09:18,077 p=7912 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: six is installed
+2025-02-19 11:09:18,096 p=7912 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: six is installed
+2025-02-19 11:09:18,125 p=7912 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: six is installed
+2025-02-19 11:09:18,133 p=7912 u=marwiesing n=ansible | TASK [Check user executing the playbook] ************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:18,506 p=7912 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:09:18,512 p=7912 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:09:18,566 p=7912 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:09:18,588 p=7912 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:09:18,595 p=7912 u=marwiesing n=ansible | TASK [Display Ansible executing user] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:18,641 p=7912 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: marwiesing
+2025-02-19 11:09:18,657 p=7912 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: marwiesing
+2025-02-19 11:09:18,660 p=7912 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: marwiesing
+2025-02-19 11:09:18,670 p=7912 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: marwiesing
+2025-02-19 11:09:18,677 p=7912 u=marwiesing n=ansible | TASK [Check available disk space] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:19,048 p=7912 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:09:19,098 p=7912 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:09:19,147 p=7912 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:09:19,160 p=7912 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:09:19,167 p=7912 u=marwiesing n=ansible | TASK [Display disk space] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:19,208 p=7912 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.4G   23G  22% /
+2025-02-19 11:09:19,231 p=7912 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.0G   23G  21% /
+2025-02-19 11:09:19,232 p=7912 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg:
+  - Filesystem           Size  Used Avail Use% Mounted on
+  - /dev/mapper/rl-root   38G  1.5G   37G   4% /
+2025-02-19 11:09:19,240 p=7912 u=marwiesing n=ansible | ok: [localhost] => 
+  msg:
+  - Filesystem      Size  Used Avail Use% Mounted on
+  - /dev/sda3        31G   14G   16G  46% /
+2025-02-19 11:09:19,249 p=7912 u=marwiesing n=ansible | TASK [Ubuntu-specific task] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:19,345 p=7912 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:09:19,357 p=7912 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 11:09:19,552 p=7912 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:09:19,579 p=7912 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:09:19,587 p=7912 u=marwiesing n=ansible | TASK [Rocky-specific task] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:19,608 p=7912 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:09:19,639 p=7912 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:09:19,658 p=7912 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 11:09:19,932 p=7912 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:09:19,971 p=7912 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:09:19,972 p=7912 u=marwiesing n=ansible | localhost                  : ok=10   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 11:09:19,972 p=7912 u=marwiesing n=ansible | rocky-01                   : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:09:19,972 p=7912 u=marwiesing n=ansible | ubuntu-01                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:09:19,972 p=7912 u=marwiesing n=ansible | ubuntu-02                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:15:32,882 p=8391 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: localhost
+
+2025-02-19 11:15:33,047 p=8391 u=marwiesing n=ansible | PLAY [Troubleshoot Ansible Issues] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:33,054 p=8391 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:34,345 p=8391 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:15:34,348 p=8391 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 11:15:34,372 p=8391 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:15:34,389 p=8391 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:15:34,431 p=8391 u=marwiesing n=ansible | TASK [Check connectivity] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:34,859 p=8391 u=marwiesing n=ansible | ok: [localhost]
+2025-02-19 11:15:34,902 p=8391 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:15:34,902 p=8391 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:15:34,928 p=8391 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:15:34,938 p=8391 u=marwiesing n=ansible | TASK [Check Python version] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:35,394 p=8391 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:15:35,424 p=8391 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:15:35,425 p=8391 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:15:35,460 p=8391 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:15:35,467 p=8391 u=marwiesing n=ansible | TASK [Display Python version] ***********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:35,553 p=8391 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:15:35,557 p=8391 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: 'Python version: Python 3.9.19'
+2025-02-19 11:15:35,565 p=8391 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:15:35,606 p=8391 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:15:35,614 p=8391 u=marwiesing n=ansible | TASK [Check if required Python packages are installed] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:35,973 p=8391 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:15:36,035 p=8391 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:15:36,105 p=8391 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:15:36,109 p=8391 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:15:36,117 p=8391 u=marwiesing n=ansible | TASK [Display six package status] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:36,199 p=8391 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: six is installed
+2025-02-19 11:15:36,207 p=8391 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: six is installed
+2025-02-19 11:15:36,266 p=8391 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: six is installed
+2025-02-19 11:15:36,282 p=8391 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: six is installed
+2025-02-19 11:15:36,286 p=8391 u=marwiesing n=ansible | TASK [Check user executing the playbook] ************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:36,656 p=8391 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:15:36,700 p=8391 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:15:36,769 p=8391 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:15:36,775 p=8391 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:15:36,782 p=8391 u=marwiesing n=ansible | TASK [Display Ansible executing user] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:36,818 p=8391 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: marwiesing
+2025-02-19 11:15:36,842 p=8391 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: marwiesing
+2025-02-19 11:15:36,844 p=8391 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: marwiesing
+2025-02-19 11:15:36,854 p=8391 u=marwiesing n=ansible | ok: [localhost] => 
+  msg: marwiesing
+2025-02-19 11:15:36,859 p=8391 u=marwiesing n=ansible | TASK [Check available disk space] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:37,204 p=8391 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:15:37,262 p=8391 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:15:37,312 p=8391 u=marwiesing n=ansible | changed: [localhost]
+2025-02-19 11:15:37,330 p=8391 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:15:37,337 p=8391 u=marwiesing n=ansible | TASK [Display disk space] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:37,385 p=8391 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.4G   23G  22% /
+2025-02-19 11:15:37,406 p=8391 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.0G   23G  21% /
+2025-02-19 11:15:37,407 p=8391 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg:
+  - Filesystem           Size  Used Avail Use% Mounted on
+  - /dev/mapper/rl-root   38G  1.5G   37G   4% /
+2025-02-19 11:15:37,421 p=8391 u=marwiesing n=ansible | ok: [localhost] => 
+  msg:
+  - Filesystem      Size  Used Avail Use% Mounted on
+  - /dev/sda3        31G   14G   16G  46% /
+2025-02-19 11:15:37,431 p=8391 u=marwiesing n=ansible | TASK [Ubuntu-specific task] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:37,524 p=8391 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:15:37,543 p=8391 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 11:15:37,751 p=8391 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:15:37,793 p=8391 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:15:37,797 p=8391 u=marwiesing n=ansible | TASK [Rocky-specific task] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:37,843 p=8391 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:15:37,860 p=8391 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:15:37,882 p=8391 u=marwiesing n=ansible | skipping: [localhost]
+2025-02-19 11:15:38,152 p=8391 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:15:38,192 p=8391 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:15:38,192 p=8391 u=marwiesing n=ansible | localhost                  : ok=10   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 11:15:38,192 p=8391 u=marwiesing n=ansible | rocky-01                   : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:15:38,192 p=8391 u=marwiesing n=ansible | ubuntu-01                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:15:38,192 p=8391 u=marwiesing n=ansible | ubuntu-02                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:18:28,489 p=8859 u=marwiesing n=ansible | PLAY [Troubleshoot Ansible Issues] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:28,495 p=8859 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:29,661 p=8859 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:18:29,670 p=8859 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:18:29,677 p=8859 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:18:29,706 p=8859 u=marwiesing n=ansible | TASK [Check connectivity] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:30,114 p=8859 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:18:30,130 p=8859 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:18:30,164 p=8859 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:18:30,173 p=8859 u=marwiesing n=ansible | TASK [Check Python version] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:30,594 p=8859 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:18:30,600 p=8859 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:18:30,641 p=8859 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:18:30,648 p=8859 u=marwiesing n=ansible | TASK [Display Python version] ***********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:30,728 p=8859 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:18:30,748 p=8859 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-19 11:18:30,750 p=8859 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: 'Python version: Python 3.9.19'
+2025-02-19 11:18:30,754 p=8859 u=marwiesing n=ansible | TASK [Check if required Python packages are installed] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:31,110 p=8859 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:18:31,126 p=8859 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:18:31,194 p=8859 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:18:31,201 p=8859 u=marwiesing n=ansible | TASK [Display six package status] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:31,249 p=8859 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: six is installed
+2025-02-19 11:18:31,289 p=8859 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: six is installed
+2025-02-19 11:18:31,296 p=8859 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: six is installed
+2025-02-19 11:18:31,301 p=8859 u=marwiesing n=ansible | TASK [Check user executing the playbook] ************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:31,602 p=8859 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:18:31,648 p=8859 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:18:31,700 p=8859 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:18:31,705 p=8859 u=marwiesing n=ansible | TASK [Display Ansible executing user] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:31,751 p=8859 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: marwiesing
+2025-02-19 11:18:31,762 p=8859 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: marwiesing
+2025-02-19 11:18:31,773 p=8859 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: marwiesing
+2025-02-19 11:18:31,784 p=8859 u=marwiesing n=ansible | TASK [Check available disk space] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:32,099 p=8859 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:18:32,148 p=8859 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:18:32,191 p=8859 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:18:32,197 p=8859 u=marwiesing n=ansible | TASK [Display disk space] ***************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:32,242 p=8859 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.4G   23G  22% /
+2025-02-19 11:18:32,250 p=8859 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.0G   23G  21% /
+2025-02-19 11:18:32,260 p=8859 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg:
+  - Filesystem           Size  Used Avail Use% Mounted on
+  - /dev/mapper/rl-root   38G  1.5G   37G   4% /
+2025-02-19 11:18:32,264 p=8859 u=marwiesing n=ansible | TASK [Ubuntu-specific task] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:32,330 p=8859 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:18:32,545 p=8859 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:18:32,579 p=8859 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:18:32,589 p=8859 u=marwiesing n=ansible | TASK [Rocky-specific task] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:32,614 p=8859 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:18:32,636 p=8859 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:18:32,939 p=8859 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:18:32,968 p=8859 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:18:32,968 p=8859 u=marwiesing n=ansible | rocky-01                   : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:18:32,968 p=8859 u=marwiesing n=ansible | ubuntu-01                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:18:32,968 p=8859 u=marwiesing n=ansible | ubuntu-02                  : ok=11   changed=5    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:20:33,442 p=9077 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:20:33,448 p=9077 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:20:34,028 p=9077 u=marwiesing n=ansible | fatal: [ubuntu-02]: FAILED! => 
+  msg: Missing sudo password
+2025-02-19 11:20:34,035 p=9077 u=marwiesing n=ansible | fatal: [ubuntu-01]: FAILED! => 
+  msg: Missing sudo password
+2025-02-19 11:20:34,094 p=9077 u=marwiesing n=ansible | fatal: [rocky-01]: FAILED! => 
+  msg: Missing sudo password
+2025-02-19 11:20:34,095 p=9077 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:20:34,095 p=9077 u=marwiesing n=ansible | rocky-01                   : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-19 11:20:34,095 p=9077 u=marwiesing n=ansible | ubuntu-01                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-19 11:20:34,095 p=9077 u=marwiesing n=ansible | ubuntu-02                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-19 11:24:23,158 p=9128 u=marwiesing n=ansible | Encryption successful
+2025-02-19 11:25:56,585 p=9141 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:25:56,605 p=9141 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:25:57,366 p=9141 u=marwiesing n=ansible | fatal: [rocky-01]: FAILED! => changed=false 
+  ansible_facts: {}
+  failed_modules:
+    ansible.legacy.setup:
+      failed: true
+      module_stderr: |-
+        Shared connection to 192.168.0.56 closed.
+      module_stdout: |2-
+  
+        We trust you have received the usual lecture from the local System
+        Administrator. It usually boils down to these three things:
+  
+            #1) Respect the privacy of others.
+            #2) Think before you type.
+            #3) With great power comes great responsibility.
+  
+  
+        marwiesing is not in the sudoers file.  This incident will be reported.
+      msg: |-
+        MODULE FAILURE
+        See stdout/stderr for the exact error
+      rc: 1
+  msg: |-
+    The following modules failed to execute: ansible.legacy.setup
+2025-02-19 11:25:57,875 p=9141 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:25:57,921 p=9141 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:25:58,035 p=9141 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:26:01,605 p=9141 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:26:01,733 p=9141 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:26:01,756 p=9141 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:26:01,792 p=9141 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:26:01,800 p=9141 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:26:01,819 p=9141 u=marwiesing n=ansible | TASK [Install common packages] **********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:26:06,326 p=9141 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 11:26:06,608 p=9141 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 11:26:06,747 p=9141 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:26:06,747 p=9141 u=marwiesing n=ansible | rocky-01                   : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-19 11:26:06,747 p=9141 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:26:06,747 p=9141 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:32:28,435 p=9224 u=marwiesing n=ansible | ERROR! Attempting to decrypt but no vault secrets found
+2025-02-19 11:34:17,704 p=9227 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:34:17,730 p=9227 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:34:19,024 p=9227 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:34:19,048 p=9227 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:34:19,081 p=9227 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:34:19,241 p=9227 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:34:19,350 p=9227 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:34:20,600 p=9227 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:34:20,607 p=9227 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:34:20,636 p=9227 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:34:20,694 p=9227 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:34:20,733 p=9227 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:34:22,390 p=9227 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:34:22,411 p=9227 u=marwiesing n=ansible | TASK [Install common packages] **********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:34:23,286 p=9227 u=marwiesing n=ansible | fatal: [rocky-01]: FAILED! => changed=false 
+  failures:
+  - No package htop available.
+  msg: Failed to install some of the specified packages
+  rc: 1
+  results: []
+2025-02-19 11:34:23,386 p=9227 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:34:23,390 p=9227 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:34:23,533 p=9227 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:34:23,535 p=9227 u=marwiesing n=ansible | rocky-01                   : ok=2    changed=0    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:34:23,535 p=9227 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:34:23,535 p=9227 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:37:24,445 p=9327 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:24,465 p=9327 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:25,720 p=9327 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:37:25,751 p=9327 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:37:25,764 p=9327 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:37:25,915 p=9327 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:26,040 p=9327 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:37:27,163 p=9327 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:37:27,224 p=9327 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:37:27,257 p=9327 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:27,299 p=9327 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:37:27,329 p=9327 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:37:28,902 p=9327 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:37:28,923 p=9327 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:28,960 p=9327 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:37:28,994 p=9327 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:37:30,339 p=9327 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:37:30,358 p=9327 u=marwiesing n=ansible | TASK [Install common packages] **********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:31,267 p=9327 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:37:31,341 p=9327 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:37:46,669 p=9327 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 11:37:46,876 p=9327 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:37:46,877 p=9327 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:37:46,877 p=9327 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 11:37:46,877 p=9327 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 11:39:10,000 p=9427 u=marwiesing n=ansible | ERROR! Attempting to decrypt but no vault secrets found
+2025-02-19 11:40:32,020 p=9430 u=marwiesing n=ansible | ERROR! Attempting to decrypt but no vault secrets found
+2025-02-19 11:41:58,559 p=9443 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:41:58,565 p=9443 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:41:59,856 p=9443 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:41:59,857 p=9443 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:41:59,875 p=9443 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:41:59,893 p=9443 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:41:59,958 p=9443 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 11:42:01,151 p=9443 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:42:01,158 p=9443 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:42:01,163 p=9443 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:42:01,191 p=9443 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:42:01,192 p=9443 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:42:03,665 p=9443 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:42:03,670 p=9443 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 11:42:03,709 p=9443 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 11:42:03,710 p=9443 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 11:42:04,548 p=9443 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:42:04,554 p=9443 u=marwiesing n=ansible | TASK [Install common packages] **********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:42:05,500 p=9443 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 11:42:05,511 p=9443 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 11:42:05,619 p=9443 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 11:42:05,655 p=9443 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 11:42:05,656 p=9443 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 11:42:05,656 p=9443 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 11:42:05,656 p=9443 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 13:29:38,238 p=9815 u=marwiesing n=ansible | ERROR! 'package' is not a valid attribute for a Play
+
+The error appears to be in '/home/marwiesing/playground/ansible/02_first_steps/pb_install_basics.yml': line 24, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Install common packages
+  ^ here
+
+2025-02-19 13:30:24,490 p=9829 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:24,496 p=9829 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:25,092 p=9829 u=marwiesing n=ansible | fatal: [ubuntu-01]: FAILED! => 
+  msg: Missing sudo password
+2025-02-19 13:30:25,098 p=9829 u=marwiesing n=ansible | fatal: [ubuntu-02]: FAILED! => 
+  msg: Missing sudo password
+2025-02-19 13:30:25,759 p=9829 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 13:30:25,767 p=9829 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:25,778 p=9829 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 13:30:25,782 p=9829 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:28,391 p=9829 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 13:30:28,396 p=9829 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:28,875 p=9829 u=marwiesing n=ansible |  [ERROR]: User interrupted execution
+
+2025-02-19 13:30:45,159 p=9885 u=marwiesing n=ansible | PLAY [Install essential packages] *******************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:45,165 p=9885 u=marwiesing n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:46,226 p=9885 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-19 13:30:46,233 p=9885 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 13:30:46,236 p=9885 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-19 13:30:46,254 p=9885 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ****************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:46,314 p=9885 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-19 13:30:49,736 p=9885 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 13:30:49,817 p=9885 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 13:30:49,826 p=9885 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:49,849 p=9885 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 13:30:49,865 p=9885 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 13:30:52,461 p=9885 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 13:30:52,465 p=9885 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:52,501 p=9885 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-19 13:30:52,510 p=9885 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-19 13:30:53,393 p=9885 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-19 13:30:53,398 p=9885 u=marwiesing n=ansible | TASK [Install common packages] **********************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:55,849 p=9885 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-19 13:30:56,779 p=9885 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-19 13:30:56,780 p=9885 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-19 13:30:56,809 p=9885 u=marwiesing n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************************************************************************************************
+2025-02-19 13:30:56,809 p=9885 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-02-19 13:30:56,810 p=9885 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-19 13:30:56,810 p=9885 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:17:24,470 p=23003 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: debian
+
+2025-02-20 09:17:24,615 p=23003 u=marwiesing n=ansible | PLAY [Troubleshoot Ansible Issues] *****************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:24,620 p=23003 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:25,882 p=23003 u=marwiesing n=ansible | ok: [debian]
+2025-02-20 09:17:26,044 p=23003 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:17:26,074 p=23003 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:17:26,103 p=23003 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:17:26,147 p=23003 u=marwiesing n=ansible | TASK [Check connectivity] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:26,561 p=23003 u=marwiesing n=ansible | ok: [debian]
+2025-02-20 09:17:26,610 p=23003 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:17:26,618 p=23003 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:17:26,652 p=23003 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:17:26,659 p=23003 u=marwiesing n=ansible | TASK [Check Python version] ************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:27,097 p=23003 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:17:27,153 p=23003 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-20 09:17:27,162 p=23003 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-20 09:17:27,193 p=23003 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-20 09:17:27,202 p=23003 u=marwiesing n=ansible | TASK [Display Python version] **********************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:27,291 p=23003 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-20 09:17:27,310 p=23003 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: 'Python version: Python 3.12.3'
+2025-02-20 09:17:27,331 p=23003 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: 'Python version: Python 3.9.21'
+2025-02-20 09:17:27,340 p=23003 u=marwiesing n=ansible | ok: [debian] => 
+  msg: 'Python version: Python 3.11.2'
+2025-02-20 09:17:27,347 p=23003 u=marwiesing n=ansible | TASK [Check if required Python packages are installed] *********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:27,782 p=23003 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-20 09:17:27,796 p=23003 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:17:27,815 p=23003 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-20 09:17:27,848 p=23003 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-20 09:17:27,855 p=23003 u=marwiesing n=ansible | TASK [Display six package status] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:27,951 p=23003 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: six is installed
+2025-02-20 09:17:27,960 p=23003 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: six is installed
+2025-02-20 09:17:27,977 p=23003 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: six is installed
+2025-02-20 09:17:28,015 p=23003 u=marwiesing n=ansible | ok: [debian] => 
+  msg: six is installed
+2025-02-20 09:17:28,023 p=23003 u=marwiesing n=ansible | TASK [Check user executing the playbook] ***********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:28,460 p=23003 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:17:28,467 p=23003 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-20 09:17:28,534 p=23003 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-20 09:17:29,439 p=23003 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-20 09:17:29,444 p=23003 u=marwiesing n=ansible | TASK [Display Ansible executing user] **************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:29,500 p=23003 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg: marwiesing
+2025-02-20 09:17:29,519 p=23003 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg: marwiesing
+2025-02-20 09:17:29,525 p=23003 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg: marwiesing
+2025-02-20 09:17:29,546 p=23003 u=marwiesing n=ansible | ok: [debian] => 
+  msg: marwiesing
+2025-02-20 09:17:29,550 p=23003 u=marwiesing n=ansible | TASK [Check available disk space] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:29,940 p=23003 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:17:29,951 p=23003 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-20 09:17:29,967 p=23003 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-20 09:17:30,018 p=23003 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-20 09:17:30,027 p=23003 u=marwiesing n=ansible | TASK [Display disk space] **************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:30,069 p=23003 u=marwiesing n=ansible | ok: [ubuntu-01] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G   13G   16G  45% /
+2025-02-20 09:17:30,090 p=23003 u=marwiesing n=ansible | ok: [ubuntu-02] => 
+  msg:
+  - Filesystem                         Size  Used Avail Use% Mounted on
+  - /dev/mapper/ubuntu--vg-ubuntu--lv   31G  6.7G   23G  24% /
+2025-02-20 09:17:30,090 p=23003 u=marwiesing n=ansible | ok: [rocky-01] => 
+  msg:
+  - Filesystem           Size  Used Avail Use% Mounted on
+  - /dev/mapper/rl-root   38G  2.5G   36G   7% /
+2025-02-20 09:17:30,112 p=23003 u=marwiesing n=ansible | ok: [debian] => 
+  msg:
+  - Filesystem      Size  Used Avail Use% Mounted on
+  - /dev/sda1        62G  5.1G   54G   9% /
+2025-02-20 09:17:30,120 p=23003 u=marwiesing n=ansible | TASK [Ubuntu-specific task] ************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:30,220 p=23003 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:17:30,225 p=23003 u=marwiesing n=ansible | skipping: [debian]
+2025-02-20 09:17:30,438 p=23003 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-20 09:17:30,482 p=23003 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-20 09:17:30,486 p=23003 u=marwiesing n=ansible | TASK [Rocky-specific task] *************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:30,510 p=23003 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:17:30,556 p=23003 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:17:30,566 p=23003 u=marwiesing n=ansible | skipping: [debian]
+2025-02-20 09:17:30,854 p=23003 u=marwiesing n=ansible | changed: [rocky-01]
+2025-02-20 09:17:30,858 p=23003 u=marwiesing n=ansible | TASK [Debian-specific task] ************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:30,889 p=23003 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:17:30,908 p=23003 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:17:30,909 p=23003 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:17:31,139 p=23003 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:17:31,177 p=23003 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:17:31,178 p=23003 u=marwiesing n=ansible | debian                     : ok=11   changed=5    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:17:31,178 p=23003 u=marwiesing n=ansible | rocky-01                   : ok=11   changed=5    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:17:31,178 p=23003 u=marwiesing n=ansible | ubuntu-01                  : ok=11   changed=5    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:17:31,178 p=23003 u=marwiesing n=ansible | ubuntu-02                  : ok=11   changed=5    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:19:18,753 p=23296 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: debian
+
+2025-02-20 09:19:18,895 p=23296 u=marwiesing n=ansible | PLAY [Install essential packages] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:18,900 p=23296 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:19,547 p=23296 u=marwiesing n=ansible | fatal: [debian]: FAILED! => 
+  msg: Missing sudo password
+2025-02-20 09:19:19,556 p=23296 u=marwiesing n=ansible | fatal: [ubuntu-01]: FAILED! => 
+  msg: Missing sudo password
+2025-02-20 09:19:19,561 p=23296 u=marwiesing n=ansible | fatal: [ubuntu-02]: FAILED! => 
+  msg: Missing sudo password
+2025-02-20 09:19:20,286 p=23296 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:19:20,297 p=23296 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:20,309 p=23296 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:19:20,318 p=23296 u=marwiesing n=ansible | TASK [Update package lists (Debian)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:20,336 p=23296 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:19:20,345 p=23296 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:23,206 p=23296 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:19:23,211 p=23296 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] *********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:24,179 p=23296 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:19:24,183 p=23296 u=marwiesing n=ansible | TASK [Install common packages] *********************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:25,038 p=23296 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:19:25,050 p=23296 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:19:25,050 p=23296 u=marwiesing n=ansible | debian                     : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-20 09:19:25,050 p=23296 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:19:25,050 p=23296 u=marwiesing n=ansible | ubuntu-01                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-20 09:19:25,050 p=23296 u=marwiesing n=ansible | ubuntu-02                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-20 09:20:11,982 p=23386 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: debian
+
+2025-02-20 09:20:12,127 p=23386 u=marwiesing n=ansible | PLAY [Install essential packages] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:12,132 p=23386 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:12,538 p=23386 u=marwiesing n=ansible | fatal: [debian]: FAILED! => changed=false 
+  ansible_facts: {}
+  failed_modules:
+    ansible.legacy.setup:
+      failed: true
+      module_stderr: |-
+        Shared connection to 192.168.0.242 closed.
+      module_stdout: |2-
+  
+        marwiesing is not in the sudoers file.
+      msg: |-
+        MODULE FAILURE
+        See stdout/stderr for the exact error
+      rc: 1
+  msg: |-
+    The following modules failed to execute: ansible.legacy.setup
+2025-02-20 09:20:13,253 p=23386 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:20:13,311 p=23386 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:20:13,321 p=23386 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:20:13,350 p=23386 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:13,412 p=23386 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:20:18,292 p=23386 u=marwiesing n=ansible | changed: [ubuntu-01]
+2025-02-20 09:20:18,497 p=23386 u=marwiesing n=ansible | changed: [ubuntu-02]
+2025-02-20 09:20:18,502 p=23386 u=marwiesing n=ansible | TASK [Update package lists (Debian)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:18,540 p=23386 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:20:18,545 p=23386 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:20:18,553 p=23386 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:20:18,558 p=23386 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:18,590 p=23386 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:20:18,600 p=23386 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:20:21,282 p=23386 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:20:21,287 p=23386 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] *********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:21,326 p=23386 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:20:21,328 p=23386 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:20:22,204 p=23386 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:20:22,208 p=23386 u=marwiesing n=ansible | TASK [Install common packages] *********************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:23,210 p=23386 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:20:23,273 p=23386 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:20:23,350 p=23386 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:20:23,401 p=23386 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:20:23,401 p=23386 u=marwiesing n=ansible | debian                     : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-20 09:20:23,401 p=23386 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:20:23,401 p=23386 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:20:23,401 p=23386 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:23:25,135 p=23491 u=marwiesing n=ansible | [WARNING]: Found both group and host with same name: debian
+
+2025-02-20 09:23:25,281 p=23491 u=marwiesing n=ansible | PLAY [Install essential packages] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:25,286 p=23491 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:26,682 p=23491 u=marwiesing n=ansible | ok: [debian]
+2025-02-20 09:23:26,870 p=23491 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:23:26,872 p=23491 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:23:26,920 p=23491 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:23:26,958 p=23491 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:27,035 p=23491 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:23:27,065 p=23491 u=marwiesing n=ansible | skipping: [debian]
+2025-02-20 09:23:28,346 p=23491 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:23:28,811 p=23491 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:23:28,814 p=23491 u=marwiesing n=ansible | TASK [Update package lists (Debian)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:28,849 p=23491 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:23:28,878 p=23491 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:23:28,879 p=23491 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:23:30,502 p=23491 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:23:30,506 p=23491 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:30,545 p=23491 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:23:30,562 p=23491 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:23:30,589 p=23491 u=marwiesing n=ansible | skipping: [debian]
+2025-02-20 09:23:33,098 p=23491 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:23:33,102 p=23491 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] *********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:33,157 p=23491 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:23:33,157 p=23491 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:23:33,171 p=23491 u=marwiesing n=ansible | skipping: [debian]
+2025-02-20 09:23:34,052 p=23491 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:23:34,057 p=23491 u=marwiesing n=ansible | TASK [Install common packages] *********************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:35,257 p=23491 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:23:35,291 p=23491 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:23:35,393 p=23491 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:23:41,272 p=23491 u=marwiesing n=ansible | changed: [debian]
+2025-02-20 09:23:41,312 p=23491 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:23:41,312 p=23491 u=marwiesing n=ansible | debian                     : ok=3    changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:23:41,312 p=23491 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:23:41,312 p=23491 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:23:41,312 p=23491 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:24:18,554 p=23634 u=marwiesing n=ansible | PLAY [Install essential packages] ******************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:18,559 p=23634 u=marwiesing n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:19,565 p=23634 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:24:19,772 p=23634 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:24:19,778 p=23634 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:24:19,795 p=23634 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:24:19,819 p=23634 u=marwiesing n=ansible | TASK [Update package lists (Ubuntu)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:19,884 p=23634 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:24:19,898 p=23634 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:24:21,209 p=23634 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:24:21,376 p=23634 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:24:21,380 p=23634 u=marwiesing n=ansible | TASK [Update package lists (Debian)] ***************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:21,398 p=23634 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:24:21,415 p=23634 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:24:21,435 p=23634 u=marwiesing n=ansible | skipping: [rocky-01]
+2025-02-20 09:24:22,541 p=23634 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:24:22,545 p=23634 u=marwiesing n=ansible | TASK [Update package lists (Rocky Linux)] **********************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:22,575 p=23634 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:24:22,602 p=23634 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:24:22,626 p=23634 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:24:25,215 p=23634 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:24:25,220 p=23634 u=marwiesing n=ansible | TASK [Ensure EPEL repository is enabled (Rocky Linux)] *********************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:25,250 p=23634 u=marwiesing n=ansible | skipping: [ubuntu-01]
+2025-02-20 09:24:25,296 p=23634 u=marwiesing n=ansible | skipping: [ubuntu-02]
+2025-02-20 09:24:25,312 p=23634 u=marwiesing n=ansible | skipping: [debian-01]
+2025-02-20 09:24:26,204 p=23634 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:24:26,209 p=23634 u=marwiesing n=ansible | TASK [Install common packages] *********************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:27,319 p=23634 u=marwiesing n=ansible | ok: [debian-01]
+2025-02-20 09:24:27,376 p=23634 u=marwiesing n=ansible | ok: [ubuntu-01]
+2025-02-20 09:24:27,467 p=23634 u=marwiesing n=ansible | ok: [ubuntu-02]
+2025-02-20 09:24:27,512 p=23634 u=marwiesing n=ansible | ok: [rocky-01]
+2025-02-20 09:24:27,563 p=23634 u=marwiesing n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************************************************************************************
+2025-02-20 09:24:27,563 p=23634 u=marwiesing n=ansible | debian-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:24:27,563 p=23634 u=marwiesing n=ansible | rocky-01                   : ok=4    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2025-02-20 09:24:27,563 p=23634 u=marwiesing n=ansible | ubuntu-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2025-02-20 09:24:27,564 p=23634 u=marwiesing n=ansible | ubuntu-02                  : ok=3    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   

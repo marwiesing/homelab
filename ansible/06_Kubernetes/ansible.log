@@ -1,0 +1,736 @@
+2025-02-22 09:06:39,426 p=3227 u=marwiesing n=ansible | ERROR! the role 'geerlingguy.kubernetes' was not found in /home/marwiesing/playground/ansible/06_Kubernetes/roles:/home/marwiesing/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/marwiesing/playground/ansible/06_Kubernetes
+
+The error appears to be in '/home/marwiesing/playground/ansible/06_Kubernetes/playbook_install_k8s.yml': line 16, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+  - geerlingguy.kubernetes
+    ^ here
+
+2025-02-22 09:07:19,778 p=3240 u=marwiesing n=ansible | Starting galaxy role install process
+2025-02-22 09:07:20,039 p=3240 u=marwiesing n=ansible | - downloading role 'kubernetes', owned by geerlingguy
+2025-02-22 09:07:20,572 p=3240 u=marwiesing n=ansible | - downloading role from https://github.com/geerlingguy/ansible-role-kubernetes/archive/8.1.0.tar.gz
+2025-02-22 09:07:21,070 p=3240 u=marwiesing n=ansible | - extracting geerlingguy.kubernetes to /home/marwiesing/.ansible/roles/geerlingguy.kubernetes
+2025-02-22 09:07:21,085 p=3240 u=marwiesing n=ansible | - geerlingguy.kubernetes (8.1.0) was installed successfully
+2025-02-22 09:07:48,890 p=3254 u=marwiesing n=ansible | PLAY [Install Kubernetes (K8s) on All Nodes] *************************************************************************************************************************************************************************************************
+2025-02-22 09:07:48,903 p=3254 u=marwiesing n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+2025-02-22 09:07:50,802 p=3254 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:07:50,913 p=3254 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:07:50,957 p=3254 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:07:50,969 p=3254 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:07:51,001 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Include OS-specific variables.] *******************************************************************************************************************************************************************************
+2025-02-22 09:07:51,061 p=3254 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:07:51,063 p=3254 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:07:51,069 p=3254 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:07:51,075 p=3254 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:07:51,080 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:07:51,103 p=3254 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:07:51,112 p=3254 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:07:51,133 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:07:51,142 p=3254 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.kubernetes/tasks/setup-RedHat.yml for rocky-1
+2025-02-22 09:07:51,156 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure Kubernetes repository exists.] *************************************************************************************************************************************************************************
+2025-02-22 09:07:51,543 p=3254 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:07:51,560 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Add Kubernetes GPG keys.] *************************************************************************************************************************************************************************************
+2025-02-22 09:07:52,370 p=3254 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:07:52,381 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Make cache if Kubernetes GPG key changed.] ********************************************************************************************************************************************************************
+2025-02-22 09:07:54,688 p=3254 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:07:54,692 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:07:54,735 p=3254 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:07:54,751 p=3254 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.kubernetes/tasks/setup-Debian.yml for ubuntu-1, ubuntu-2, debian-1
+2025-02-22 09:07:54,757 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure dependencies are installed.] ***************************************************************************************************************************************************************************
+2025-02-22 09:07:55,798 p=3254 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:07:57,949 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:07:58,156 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:07:58,165 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Add Kubernetes repository.] ***********************************************************************************************************************************************************************************
+2025-02-22 09:07:58,982 p=3254 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:07:58,997 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:07:59,022 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:07:59,030 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Update Apt cache.] ********************************************************************************************************************************************************************************************
+2025-02-22 09:08:02,262 p=3254 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:08:04,514 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:08:05,222 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:08:05,228 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Add Kubernetes apt preferences file to pin a version.] ********************************************************************************************************************************************************
+2025-02-22 09:08:05,980 p=3254 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:08:06,014 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:08:06,029 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:08:06,038 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure dependencies are installed.] ***************************************************************************************************************************************************************************
+2025-02-22 09:08:07,062 p=3254 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:08:07,162 p=3254 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:08:07,170 p=3254 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:08:07,557 p=3254 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:08:07,564 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Install Kubernetes packages.] *********************************************************************************************************************************************************************************
+2025-02-22 09:08:14,984 p=3254 u=marwiesing n=ansible | changed: [rocky-1] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:08:16,544 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:08:17,871 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:08:18,799 p=3254 u=marwiesing n=ansible | changed: [rocky-1] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:08:19,508 p=3254 u=marwiesing n=ansible | changed: [debian-1] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:08:20,663 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:08:21,949 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:08:23,358 p=3254 u=marwiesing n=ansible | changed: [debian-1] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:08:24,135 p=3254 u=marwiesing n=ansible | changed: [rocky-1] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:08:25,445 p=3254 u=marwiesing n=ansible | ok: [rocky-1] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:08:26,044 p=3254 u=marwiesing n=ansible | changed: [ubuntu-2] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:08:26,906 p=3254 u=marwiesing n=ansible | ok: [ubuntu-2] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:08:26,978 p=3254 u=marwiesing n=ansible | changed: [ubuntu-1] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:08:27,757 p=3254 u=marwiesing n=ansible | ok: [ubuntu-1] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:08:27,895 p=3254 u=marwiesing n=ansible | changed: [debian-1] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:08:28,513 p=3254 u=marwiesing n=ansible | ok: [debian-1] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:08:28,520 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:08:28,588 p=3254 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.kubernetes/tasks/sysctl-setup.yml for ubuntu-1, ubuntu-2, rocky-1, debian-1
+2025-02-22 09:08:28,606 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure procps is installed.] **********************************************************************************************************************************************************************************
+2025-02-22 09:08:28,802 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:29,637 p=3254 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:08:29,675 p=3254 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:08:29,819 p=3254 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:08:29,824 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Let iptables see bridged traffic.] ****************************************************************************************************************************************************************************
+2025-02-22 09:08:29,995 p=3254 u=marwiesing n=ansible | skipping: [debian-1] => (item=net.bridge.bridge-nf-call-iptables) 
+2025-02-22 09:08:30,025 p=3254 u=marwiesing n=ansible | skipping: [debian-1] => (item=net.bridge.bridge-nf-call-ip6tables) 
+2025-02-22 09:08:30,026 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:30,384 p=3254 u=marwiesing n=ansible | failed: [ubuntu-1] (item=net.bridge.bridge-nf-call-iptables) => changed=false 
+  ansible_loop_var: item
+  item: net.bridge.bridge-nf-call-iptables
+  msg: |-
+    Failed to reload sysctl: sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+2025-02-22 09:08:30,384 p=3254 u=marwiesing n=ansible | failed: [ubuntu-2] (item=net.bridge.bridge-nf-call-iptables) => changed=false 
+  ansible_loop_var: item
+  item: net.bridge.bridge-nf-call-iptables
+  msg: |-
+    Failed to reload sysctl: sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+2025-02-22 09:08:30,431 p=3254 u=marwiesing n=ansible | failed: [rocky-1] (item=net.bridge.bridge-nf-call-iptables) => changed=false 
+  ansible_loop_var: item
+  item: net.bridge.bridge-nf-call-iptables
+  msg: |-
+    Failed to reload sysctl: sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+2025-02-22 09:08:30,711 p=3254 u=marwiesing n=ansible | failed: [ubuntu-2] (item=net.bridge.bridge-nf-call-ip6tables) => changed=false 
+  ansible_loop_var: item
+  item: net.bridge.bridge-nf-call-ip6tables
+  msg: |-
+    Failed to reload sysctl: sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+    sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-ip6tables: No such file or directory
+2025-02-22 09:08:30,720 p=3254 u=marwiesing n=ansible | failed: [ubuntu-1] (item=net.bridge.bridge-nf-call-ip6tables) => changed=false 
+  ansible_loop_var: item
+  item: net.bridge.bridge-nf-call-ip6tables
+  msg: |-
+    Failed to reload sysctl: sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+    sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-ip6tables: No such file or directory
+2025-02-22 09:08:30,806 p=3254 u=marwiesing n=ansible | failed: [rocky-1] (item=net.bridge.bridge-nf-call-ip6tables) => changed=false 
+  ansible_loop_var: item
+  item: net.bridge.bridge-nf-call-ip6tables
+  msg: |-
+    Failed to reload sysctl: sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-iptables: No such file or directory
+    sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-ip6tables: No such file or directory
+2025-02-22 09:08:30,814 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:08:30,860 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:30,865 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure kubelet is started and enabled at boot.] ***************************************************************************************************************************************************************
+2025-02-22 09:08:31,436 p=3254 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:08:31,441 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Check if Kubernetes has already been initialized.] ************************************************************************************************************************************************************
+2025-02-22 09:08:31,666 p=3254 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:08:31,671 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:08:31,690 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:31,700 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Get the kubeadm join command from the Kubernetes control plane.] **********************************************************************************************************************************************
+2025-02-22 09:08:31,725 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:31,731 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Set the kubeadm join command globally.] ***********************************************************************************************************************************************************************
+2025-02-22 09:08:31,762 p=3254 u=marwiesing n=ansible | skipping: [debian-1] => (item=ubuntu-1) 
+2025-02-22 09:08:31,767 p=3254 u=marwiesing n=ansible | skipping: [debian-1] => (item=ubuntu-2) 
+2025-02-22 09:08:31,774 p=3254 u=marwiesing n=ansible | skipping: [debian-1] => (item=rocky-1) 
+2025-02-22 09:08:31,776 p=3254 u=marwiesing n=ansible | skipping: [debian-1] => (item=debian-1) 
+2025-02-22 09:08:31,779 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:31,788 p=3254 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:08:31,807 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:31,819 p=3254 u=marwiesing n=ansible | TASK [Set Control Plane role for Ubuntu-1] ***************************************************************************************************************************************************************************************************
+2025-02-22 09:08:31,841 p=3254 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:08:31,851 p=3254 u=marwiesing n=ansible | RUNNING HANDLER [geerlingguy.kubernetes : restart kubelet] ***********************************************************************************************************************************************************************************
+2025-02-22 09:08:32,209 p=3254 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:08:32,217 p=3254 u=marwiesing n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+2025-02-22 09:08:32,218 p=3254 u=marwiesing n=ansible | debian-1                   : ok=13   changed=6    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+2025-02-22 09:08:32,218 p=3254 u=marwiesing n=ansible | rocky-1                    : ok=10   changed=4    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2025-02-22 09:08:32,218 p=3254 u=marwiesing n=ansible | ubuntu-1                   : ok=11   changed=5    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2025-02-22 09:08:32,218 p=3254 u=marwiesing n=ansible | ubuntu-2                   : ok=11   changed=5    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2025-02-22 09:11:12,157 p=3746 u=marwiesing n=ansible | PLAY [Install Kubernetes (K8s) on All Nodes] *************************************************************************************************************************************************************************************************
+2025-02-22 09:11:12,164 p=3746 u=marwiesing n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+2025-02-22 09:11:13,561 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:13,625 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:13,648 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:13,749 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:13,754 p=3746 u=marwiesing n=ansible | TASK [Load br_netfilter module] **************************************************************************************************************************************************************************************************************
+2025-02-22 09:11:14,197 p=3746 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:11:14,243 p=3746 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:11:14,257 p=3746 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:11:14,295 p=3746 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:11:14,305 p=3746 u=marwiesing n=ansible | TASK [Ensure br_netfilter is enabled at boot] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:15,147 p=3746 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:11:15,225 p=3746 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:11:15,225 p=3746 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:11:15,227 p=3746 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:11:15,240 p=3746 u=marwiesing n=ansible | TASK [Set Kubernetes sysctl settings] ********************************************************************************************************************************************************************************************************
+2025-02-22 09:11:15,860 p=3746 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:11:15,929 p=3746 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:11:15,948 p=3746 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:11:16,064 p=3746 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:11:16,074 p=3746 u=marwiesing n=ansible | TASK [Apply sysctl settings] *****************************************************************************************************************************************************************************************************************
+2025-02-22 09:11:16,523 p=3746 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 09:11:16,563 p=3746 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:11:16,566 p=3746 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:11:16,596 p=3746 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:11:16,629 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Include OS-specific variables.] *******************************************************************************************************************************************************************************
+2025-02-22 09:11:16,670 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:16,693 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:16,696 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:16,707 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:16,713 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:16,734 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:16,759 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:16,769 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:16,775 p=3746 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.kubernetes/tasks/setup-RedHat.yml for rocky-1
+2025-02-22 09:11:16,784 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure Kubernetes repository exists.] *************************************************************************************************************************************************************************
+2025-02-22 09:11:17,177 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:17,187 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Add Kubernetes GPG keys.] *************************************************************************************************************************************************************************************
+2025-02-22 09:11:17,950 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:17,959 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Make cache if Kubernetes GPG key changed.] ********************************************************************************************************************************************************************
+2025-02-22 09:11:17,982 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:17,986 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:18,055 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:18,088 p=3746 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.kubernetes/tasks/setup-Debian.yml for ubuntu-1, ubuntu-2, debian-1
+2025-02-22 09:11:18,101 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure dependencies are installed.] ***************************************************************************************************************************************************************************
+2025-02-22 09:11:19,032 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:19,169 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:19,170 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:19,175 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Add Kubernetes repository.] ***********************************************************************************************************************************************************************************
+2025-02-22 09:11:19,961 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:20,010 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:20,031 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:20,036 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Update Apt cache.] ********************************************************************************************************************************************************************************************
+2025-02-22 09:11:20,075 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:20,089 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:20,107 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:20,115 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Add Kubernetes apt preferences file to pin a version.] ********************************************************************************************************************************************************
+2025-02-22 09:11:20,783 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:20,816 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:20,844 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:20,892 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure dependencies are installed.] ***************************************************************************************************************************************************************************
+2025-02-22 09:11:21,911 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:21,931 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:22,032 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:22,260 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:22,265 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Install Kubernetes packages.] *********************************************************************************************************************************************************************************
+2025-02-22 09:11:23,310 p=3746 u=marwiesing n=ansible | ok: [debian-1] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:11:23,348 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:11:23,497 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:11:23,599 p=3746 u=marwiesing n=ansible | ok: [rocky-1] => (item={'name': 'kubelet', 'state': 'present'})
+2025-02-22 09:11:24,224 p=3746 u=marwiesing n=ansible | ok: [debian-1] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:11:24,424 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:11:24,598 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:11:24,909 p=3746 u=marwiesing n=ansible | ok: [rocky-1] => (item={'name': 'kubectl', 'state': 'present'})
+2025-02-22 09:11:25,100 p=3746 u=marwiesing n=ansible | ok: [debian-1] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:11:25,477 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:11:25,670 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:11:25,975 p=3746 u=marwiesing n=ansible | ok: [debian-1] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:11:26,210 p=3746 u=marwiesing n=ansible | ok: [rocky-1] => (item={'name': 'kubeadm', 'state': 'present'})
+2025-02-22 09:11:26,484 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:11:26,652 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:11:27,181 p=3746 u=marwiesing n=ansible | ok: [rocky-1] => (item={'name': 'kubernetes-cni', 'state': 'present'})
+2025-02-22 09:11:27,197 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:27,290 p=3746 u=marwiesing n=ansible | included: /home/marwiesing/.ansible/roles/geerlingguy.kubernetes/tasks/sysctl-setup.yml for ubuntu-1, rocky-1, ubuntu-2, debian-1
+2025-02-22 09:11:27,307 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure procps is installed.] **********************************************************************************************************************************************************************************
+2025-02-22 09:11:27,484 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:28,326 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:28,377 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:28,481 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:28,486 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Let iptables see bridged traffic.] ****************************************************************************************************************************************************************************
+2025-02-22 09:11:28,634 p=3746 u=marwiesing n=ansible | skipping: [debian-1] => (item=net.bridge.bridge-nf-call-iptables) 
+2025-02-22 09:11:28,634 p=3746 u=marwiesing n=ansible | skipping: [debian-1] => (item=net.bridge.bridge-nf-call-ip6tables) 
+2025-02-22 09:11:28,635 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:29,032 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1] => (item=net.bridge.bridge-nf-call-iptables)
+2025-02-22 09:11:29,046 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2] => (item=net.bridge.bridge-nf-call-iptables)
+2025-02-22 09:11:29,081 p=3746 u=marwiesing n=ansible | ok: [rocky-1] => (item=net.bridge.bridge-nf-call-iptables)
+2025-02-22 09:11:29,366 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2] => (item=net.bridge.bridge-nf-call-ip6tables)
+2025-02-22 09:11:29,375 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1] => (item=net.bridge.bridge-nf-call-ip6tables)
+2025-02-22 09:11:29,464 p=3746 u=marwiesing n=ansible | ok: [rocky-1] => (item=net.bridge.bridge-nf-call-ip6tables)
+2025-02-22 09:11:29,476 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:29,537 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:29,581 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:29,633 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:29,638 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:29,645 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Ensure kubelet is started and enabled at boot.] ***************************************************************************************************************************************************************
+2025-02-22 09:11:30,311 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:30,444 p=3746 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 09:11:30,463 p=3746 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-02-22 09:11:30,618 p=3746 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 09:11:30,628 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Check if Kubernetes has already been initialized.] ************************************************************************************************************************************************************
+2025-02-22 09:11:31,000 p=3746 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-02-22 09:11:31,017 p=3746 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 09:11:31,030 p=3746 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 09:11:31,090 p=3746 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 09:11:31,097 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:31,120 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:31,170 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:31,172 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:31,182 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:31,187 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Get the kubeadm join command from the Kubernetes control plane.] **********************************************************************************************************************************************
+2025-02-22 09:11:31,228 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:31,269 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:31,269 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:31,277 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:31,283 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : Set the kubeadm join command globally.] ***********************************************************************************************************************************************************************
+2025-02-22 09:11:31,344 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1] => (item=ubuntu-1) 
+2025-02-22 09:11:31,371 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1] => (item=ubuntu-2) 
+2025-02-22 09:11:31,375 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2] => (item=ubuntu-1) 
+2025-02-22 09:11:31,388 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1] => (item=rocky-1) 
+2025-02-22 09:11:31,396 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1] => (item=debian-1) 
+2025-02-22 09:11:31,397 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:31,401 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2] => (item=ubuntu-2) 
+2025-02-22 09:11:31,403 p=3746 u=marwiesing n=ansible | skipping: [rocky-1] => (item=ubuntu-1) 
+2025-02-22 09:11:31,407 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2] => (item=rocky-1) 
+2025-02-22 09:11:31,414 p=3746 u=marwiesing n=ansible | skipping: [rocky-1] => (item=ubuntu-2) 
+2025-02-22 09:11:31,425 p=3746 u=marwiesing n=ansible | skipping: [debian-1] => (item=ubuntu-1) 
+2025-02-22 09:11:31,430 p=3746 u=marwiesing n=ansible | skipping: [rocky-1] => (item=rocky-1) 
+2025-02-22 09:11:31,438 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2] => (item=debian-1) 
+2025-02-22 09:11:31,439 p=3746 u=marwiesing n=ansible | skipping: [debian-1] => (item=ubuntu-2) 
+2025-02-22 09:11:31,439 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:31,444 p=3746 u=marwiesing n=ansible | skipping: [rocky-1] => (item=debian-1) 
+2025-02-22 09:11:31,445 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:31,449 p=3746 u=marwiesing n=ansible | skipping: [debian-1] => (item=rocky-1) 
+2025-02-22 09:11:31,453 p=3746 u=marwiesing n=ansible | skipping: [debian-1] => (item=debian-1) 
+2025-02-22 09:11:31,454 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:31,459 p=3746 u=marwiesing n=ansible | TASK [geerlingguy.kubernetes : include_tasks] ************************************************************************************************************************************************************************************************
+2025-02-22 09:11:31,481 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-02-22 09:11:31,508 p=3746 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-02-22 09:11:31,510 p=3746 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-02-22 09:11:31,515 p=3746 u=marwiesing n=ansible | skipping: [debian-1]
+2025-02-22 09:11:31,571 p=3746 u=marwiesing n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+2025-02-22 09:11:31,572 p=3746 u=marwiesing n=ansible | debian-1                   : ok=15   changed=4    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+2025-02-22 09:11:31,572 p=3746 u=marwiesing n=ansible | rocky-1                    : ok=16   changed=5    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2025-02-22 09:11:31,572 p=3746 u=marwiesing n=ansible | ubuntu-1                   : ok=17   changed=5    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2025-02-22 09:11:31,572 p=3746 u=marwiesing n=ansible | ubuntu-2                   : ok=17   changed=5    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2025-02-22 11:29:20,647 p=6373 u=marwiesing n=ansible | PLAY [Join Worker Nodes to Kubernetes Cluster] ***********************************************************************************************************************************************************************************************
+2025-02-22 11:29:20,655 p=6373 u=marwiesing n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+2025-02-22 11:29:21,960 p=6373 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:29:22,108 p=6373 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:29:22,172 p=6373 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:29:22,202 p=6373 u=marwiesing n=ansible | TASK [Ensure kubeadm is installed] ***********************************************************************************************************************************************************************************************************
+2025-02-22 11:29:23,199 p=6373 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:29:23,406 p=6373 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:29:23,613 p=6373 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:29:23,620 p=6373 u=marwiesing n=ansible | TASK [Join the Kubernetes Cluster] ***********************************************************************************************************************************************************************************************************
+2025-02-22 11:33:24,510 p=6373 u=marwiesing n=ansible | fatal: [debian-1]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:04:00.467274'
+  end: '2025-02-22 11:33:24.487384'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 11:29:24.020110'
+  stderr: |-
+    W0222 11:29:24.054534   11411 checks.go:1077] [preflight] WARNING: Couldn't create the interface used for talking to the container runtime: failed to create new CRI runtime service: validate service connection: validate CRI v1 runtime API for endpoint "unix:///var/run/containerd/containerd.sock": rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+            [WARNING Swap]: swap is supported for cgroup v2 only. The kubelet must be properly configured to use swap. Please refer to https://kubernetes.io/docs/concepts/architecture/nodes/#swap-memory, or disable swap on the node
+    error execution phase kubelet-start: The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused
+  
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+    [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+    [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+    [kubelet-start] Starting the kubelet
+    [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+    [kubelet-check] The kubelet is not healthy after 4m0.000392424s
+  
+    Unfortunately, an error has occurred:
+            The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused
+  
+  
+    This error is likely caused by:
+            - The kubelet is not running
+            - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+  
+    If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+            - 'systemctl status kubelet'
+            - 'journalctl -xeu kubelet'
+  stdout_lines: <omitted>
+2025-02-22 11:33:24,546 p=6373 u=marwiesing n=ansible | fatal: [ubuntu-2]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:04:00.452482'
+  end: '2025-02-22 10:33:24.606718'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 10:29:24.154236'
+  stderr: |-
+    W0222 10:29:24.189096   11278 checks.go:1077] [preflight] WARNING: Couldn't create the interface used for talking to the container runtime: failed to create new CRI runtime service: validate service connection: validate CRI v1 runtime API for endpoint "unix:///var/run/containerd/containerd.sock": rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+            [WARNING Swap]: swap is supported for cgroup v2 only. The kubelet must be properly configured to use swap. Please refer to https://kubernetes.io/docs/concepts/architecture/nodes/#swap-memory, or disable swap on the node
+    error execution phase kubelet-start: The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": context deadline exceeded
+  
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+    [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+    [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+    [kubelet-start] Starting the kubelet
+    [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+    [kubelet-check] The kubelet is not healthy after 4m0.000342061s
+  
+    Unfortunately, an error has occurred:
+            The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": context deadline exceeded
+  
+  
+    This error is likely caused by:
+            - The kubelet is not running
+            - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+  
+    If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+            - 'systemctl status kubelet'
+            - 'journalctl -xeu kubelet'
+  stdout_lines: <omitted>
+2025-02-22 11:33:24,546 p=6373 u=marwiesing n=ansible | fatal: [rocky-1]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:04:00.402350'
+  end: '2025-02-22 11:33:24.592109'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 11:29:24.189759'
+  stderr: |-
+    W0222 11:29:24.225048   10663 checks.go:1077] [preflight] WARNING: Couldn't create the interface used for talking to the container runtime: failed to create new CRI runtime service: validate service connection: validate CRI v1 runtime API for endpoint "unix:///var/run/containerd/containerd.sock": rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+            [WARNING Swap]: swap is supported for cgroup v2 only. The kubelet must be properly configured to use swap. Please refer to https://kubernetes.io/docs/concepts/architecture/nodes/#swap-memory, or disable swap on the node
+    error execution phase kubelet-start: The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": context deadline exceeded
+  
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+    [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+    [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+    [kubelet-start] Starting the kubelet
+    [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+    [kubelet-check] The kubelet is not healthy after 4m0.001272014s
+  
+    Unfortunately, an error has occurred:
+            The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": context deadline exceeded
+  
+  
+    This error is likely caused by:
+            - The kubelet is not running
+            - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+  
+    If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+            - 'systemctl status kubelet'
+            - 'journalctl -xeu kubelet'
+  stdout_lines: <omitted>
+2025-02-22 11:33:24,551 p=6373 u=marwiesing n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+2025-02-22 11:33:24,551 p=6373 u=marwiesing n=ansible | debian-1                   : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:33:24,551 p=6373 u=marwiesing n=ansible | rocky-1                    : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:33:24,551 p=6373 u=marwiesing n=ansible | ubuntu-2                   : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:39:30,630 p=6517 u=marwiesing n=ansible | PLAY [Reset and Fix Kubernetes Worker Nodes Before Joining the Cluster] **********************************************************************************************************************************************************************
+2025-02-22 11:39:30,635 p=6517 u=marwiesing n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+2025-02-22 11:39:31,850 p=6517 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:39:32,004 p=6517 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:39:32,023 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:39:32,044 p=6517 u=marwiesing n=ansible | TASK [Ensure kubeadm is installed] ***********************************************************************************************************************************************************************************************************
+2025-02-22 11:39:33,000 p=6517 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:39:33,125 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:39:33,356 p=6517 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:39:33,363 p=6517 u=marwiesing n=ansible | TASK [Reset Kubernetes on worker nodes] ******************************************************************************************************************************************************************************************************
+2025-02-22 11:39:33,810 p=6517 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 11:39:33,849 p=6517 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 11:39:33,896 p=6517 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 11:39:33,902 p=6517 u=marwiesing n=ansible | TASK [Remove old Kubernetes configurations] **************************************************************************************************************************************************************************************************
+2025-02-22 11:39:34,319 p=6517 u=marwiesing n=ansible | changed: [debian-1] => (item=/etc/kubernetes)
+2025-02-22 11:39:34,389 p=6517 u=marwiesing n=ansible | changed: [ubuntu-2] => (item=/etc/kubernetes)
+2025-02-22 11:39:34,409 p=6517 u=marwiesing n=ansible | changed: [rocky-1] => (item=/etc/kubernetes)
+2025-02-22 11:39:34,615 p=6517 u=marwiesing n=ansible | ok: [debian-1] => (item=/var/lib/etcd)
+2025-02-22 11:39:34,723 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2] => (item=/var/lib/etcd)
+2025-02-22 11:39:34,798 p=6517 u=marwiesing n=ansible | ok: [rocky-1] => (item=/var/lib/etcd)
+2025-02-22 11:39:34,804 p=6517 u=marwiesing n=ansible | TASK [Ensure containerd directory exists] ****************************************************************************************************************************************************************************************************
+2025-02-22 11:39:35,133 p=6517 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:39:35,170 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:39:35,229 p=6517 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:39:35,237 p=6517 u=marwiesing n=ansible | TASK [Configure containerd for Kubernetes] ***************************************************************************************************************************************************************************************************
+2025-02-22 11:39:35,575 p=6517 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:39:35,598 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:39:35,642 p=6517 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:39:35,649 p=6517 u=marwiesing n=ansible | TASK [Restart containerd and kubelet] ********************************************************************************************************************************************************************************************************
+2025-02-22 11:39:36,382 p=6517 u=marwiesing n=ansible | changed: [debian-1] => (item=containerd)
+2025-02-22 11:39:36,461 p=6517 u=marwiesing n=ansible | changed: [ubuntu-2] => (item=containerd)
+2025-02-22 11:39:36,658 p=6517 u=marwiesing n=ansible | changed: [rocky-1] => (item=containerd)
+2025-02-22 11:39:36,863 p=6517 u=marwiesing n=ansible | changed: [debian-1] => (item=kubelet)
+2025-02-22 11:39:37,000 p=6517 u=marwiesing n=ansible | changed: [ubuntu-2] => (item=kubelet)
+2025-02-22 11:39:37,162 p=6517 u=marwiesing n=ansible | changed: [rocky-1] => (item=kubelet)
+2025-02-22 11:39:37,170 p=6517 u=marwiesing n=ansible | TASK [Disable swap temporarily] **************************************************************************************************************************************************************************************************************
+2025-02-22 11:39:37,523 p=6517 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 11:39:37,573 p=6517 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 11:39:37,631 p=6517 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 11:39:37,638 p=6517 u=marwiesing n=ansible | TASK [Remove swap from /etc/fstab (Permanent Fix)] *******************************************************************************************************************************************************************************************
+2025-02-22 11:39:38,050 p=6517 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 11:39:38,091 p=6517 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 11:39:38,130 p=6517 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 11:39:38,135 p=6517 u=marwiesing n=ansible | TASK [Verify swap is disabled] ***************************************************************************************************************************************************************************************************************
+2025-02-22 11:39:38,509 p=6517 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:39:38,594 p=6517 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:39:39,509 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:39:39,516 p=6517 u=marwiesing n=ansible | TASK [Show swap status] **********************************************************************************************************************************************************************************************************************
+2025-02-22 11:39:39,559 p=6517 u=marwiesing n=ansible | ok: [ubuntu-2] => 
+  msg: |2-
+                   total        used        free      shared  buff/cache   available
+    Mem:           7.8Gi       452Mi       6.5Gi       716Ki       1.0Gi       7.3Gi
+    Swap:             0B          0B          0B
+2025-02-22 11:39:39,564 p=6517 u=marwiesing n=ansible | ok: [rocky-1] => 
+  msg: |2-
+                   total        used        free      shared  buff/cache   available
+    Mem:           7.5Gi       500Mi       6.5Gi       8.0Mi       809Mi       7.0Gi
+    Swap:             0B          0B          0B
+2025-02-22 11:39:39,571 p=6517 u=marwiesing n=ansible | ok: [debian-1] => 
+  msg: |2-
+                   total        used        free      shared  buff/cache   available
+    Mem:           7.8Gi       991Mi       5.8Gi       8.1Mi       1.2Gi       6.8Gi
+    Swap:             0B          0B          0B
+2025-02-22 11:39:39,577 p=6517 u=marwiesing n=ansible | TASK [Join the Kubernetes Cluster] ***********************************************************************************************************************************************************************************************************
+2025-02-22 11:43:40,361 p=6517 u=marwiesing n=ansible | fatal: [ubuntu-2]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:04:00.439770'
+  end: '2025-02-22 10:43:40.449109'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 10:39:40.009339'
+  stderr: |-
+    W0222 10:39:40.044397   12454 checks.go:1077] [preflight] WARNING: Couldn't create the interface used for talking to the container runtime: failed to create new CRI runtime service: validate service connection: validate CRI v1 runtime API for endpoint "unix:///var/run/containerd/containerd.sock": rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+    error execution phase kubelet-start: The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused
+  
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+    [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+    [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+    [kubelet-start] Starting the kubelet
+    [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+    [kubelet-check] The kubelet is not healthy after 4m0.000154803s
+  
+    Unfortunately, an error has occurred:
+            The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused
+  
+  
+    This error is likely caused by:
+            - The kubelet is not running
+            - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+  
+    If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+            - 'systemctl status kubelet'
+            - 'journalctl -xeu kubelet'
+  stdout_lines: <omitted>
+2025-02-22 11:43:40,422 p=6517 u=marwiesing n=ansible | fatal: [debian-1]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:04:00.480852'
+  end: '2025-02-22 11:43:40.378388'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 11:39:39.897536'
+  stderr: |-
+    W0222 11:39:39.929127   12594 checks.go:1077] [preflight] WARNING: Couldn't create the interface used for talking to the container runtime: failed to create new CRI runtime service: validate service connection: validate CRI v1 runtime API for endpoint "unix:///var/run/containerd/containerd.sock": rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+    error execution phase kubelet-start: The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused
+  
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+    [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+    [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+    [kubelet-start] Starting the kubelet
+    [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+    [kubelet-check] The kubelet is not healthy after 4m0.000995138s
+  
+    Unfortunately, an error has occurred:
+            The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused
+  
+  
+    This error is likely caused by:
+            - The kubelet is not running
+            - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+  
+    If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+            - 'systemctl status kubelet'
+            - 'journalctl -xeu kubelet'
+  stdout_lines: <omitted>
+2025-02-22 11:43:40,434 p=6517 u=marwiesing n=ansible | fatal: [rocky-1]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:04:00.412195'
+  end: '2025-02-22 11:43:40.486301'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 11:39:40.074106'
+  stderr: |-
+    W0222 11:39:40.104484   12858 checks.go:1077] [preflight] WARNING: Couldn't create the interface used for talking to the container runtime: failed to create new CRI runtime service: validate service connection: validate CRI v1 runtime API for endpoint "unix:///var/run/containerd/containerd.sock": rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+    error execution phase kubelet-start: The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": context deadline exceeded
+  
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+    [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+    [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+    [kubelet-start] Starting the kubelet
+    [kubelet-check] Waiting for a healthy kubelet at http://127.0.0.1:10248/healthz. This can take up to 4m0s
+    [kubelet-check] The kubelet is not healthy after 4m0.000578648s
+  
+    Unfortunately, an error has occurred:
+            The HTTP call equal to 'curl -sSL http://127.0.0.1:10248/healthz' returned error: Get "http://127.0.0.1:10248/healthz": context deadline exceeded
+  
+  
+    This error is likely caused by:
+            - The kubelet is not running
+            - The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+  
+    If you are on a systemd-powered system, you can try to troubleshoot the error with the following commands:
+            - 'systemctl status kubelet'
+            - 'journalctl -xeu kubelet'
+  stdout_lines: <omitted>
+2025-02-22 11:43:40,435 p=6517 u=marwiesing n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+2025-02-22 11:43:40,435 p=6517 u=marwiesing n=ansible | debian-1                   : ok=11   changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:43:40,436 p=6517 u=marwiesing n=ansible | rocky-1                    : ok=11   changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:43:40,436 p=6517 u=marwiesing n=ansible | ubuntu-2                   : ok=11   changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:53:16,997 p=6906 u=marwiesing n=ansible | PLAY [Reset and Fix Kubernetes Worker Nodes Before Joining the Cluster] **********************************************************************************************************************************************************************
+2025-02-22 11:53:17,003 p=6906 u=marwiesing n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+2025-02-22 11:53:18,146 p=6906 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:53:18,323 p=6906 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:53:18,342 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:53:18,380 p=6906 u=marwiesing n=ansible | TASK [Ensure kubeadm is installed] ***********************************************************************************************************************************************************************************************************
+2025-02-22 11:53:19,384 p=6906 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:53:19,522 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:53:19,799 p=6906 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:53:19,805 p=6906 u=marwiesing n=ansible | TASK [Reset Kubernetes on worker nodes] ******************************************************************************************************************************************************************************************************
+2025-02-22 11:53:20,342 p=6906 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 11:53:20,343 p=6906 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 11:53:20,526 p=6906 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 11:53:20,531 p=6906 u=marwiesing n=ansible | TASK [Remove old Kubernetes configurations] **************************************************************************************************************************************************************************************************
+2025-02-22 11:53:20,999 p=6906 u=marwiesing n=ansible | changed: [debian-1] => (item=/etc/kubernetes)
+2025-02-22 11:53:21,044 p=6906 u=marwiesing n=ansible | changed: [ubuntu-2] => (item=/etc/kubernetes)
+2025-02-22 11:53:21,079 p=6906 u=marwiesing n=ansible | changed: [rocky-1] => (item=/etc/kubernetes)
+2025-02-22 11:53:21,310 p=6906 u=marwiesing n=ansible | ok: [debian-1] => (item=/var/lib/etcd)
+2025-02-22 11:53:21,387 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2] => (item=/var/lib/etcd)
+2025-02-22 11:53:21,473 p=6906 u=marwiesing n=ansible | ok: [rocky-1] => (item=/var/lib/etcd)
+2025-02-22 11:53:21,480 p=6906 u=marwiesing n=ansible | TASK [Ensure containerd directory exists] ****************************************************************************************************************************************************************************************************
+2025-02-22 11:53:21,842 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:53:21,865 p=6906 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:53:21,927 p=6906 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:53:21,932 p=6906 u=marwiesing n=ansible | TASK [Configure containerd for Kubernetes] ***************************************************************************************************************************************************************************************************
+2025-02-22 11:53:22,278 p=6906 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:53:22,289 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:53:22,357 p=6906 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:53:22,364 p=6906 u=marwiesing n=ansible | TASK [Restart containerd and kubelet] ********************************************************************************************************************************************************************************************************
+2025-02-22 11:53:23,171 p=6906 u=marwiesing n=ansible | changed: [debian-1] => (item=containerd)
+2025-02-22 11:53:23,264 p=6906 u=marwiesing n=ansible | changed: [rocky-1] => (item=containerd)
+2025-02-22 11:53:23,300 p=6906 u=marwiesing n=ansible | changed: [ubuntu-2] => (item=containerd)
+2025-02-22 11:53:23,656 p=6906 u=marwiesing n=ansible | changed: [debian-1] => (item=kubelet)
+2025-02-22 11:53:23,846 p=6906 u=marwiesing n=ansible | changed: [ubuntu-2] => (item=kubelet)
+2025-02-22 11:53:23,883 p=6906 u=marwiesing n=ansible | changed: [rocky-1] => (item=kubelet)
+2025-02-22 11:53:23,894 p=6906 u=marwiesing n=ansible | TASK [Disable swap temporarily] **************************************************************************************************************************************************************************************************************
+2025-02-22 11:53:24,235 p=6906 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-02-22 11:53:24,267 p=6906 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 11:53:24,329 p=6906 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 11:53:24,333 p=6906 u=marwiesing n=ansible | TASK [Remove swap from /etc/fstab (Permanent Fix)] *******************************************************************************************************************************************************************************************
+2025-02-22 11:53:24,744 p=6906 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:53:24,791 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:53:24,827 p=6906 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:53:24,832 p=6906 u=marwiesing n=ansible | TASK [Verify swap is disabled] ***************************************************************************************************************************************************************************************************************
+2025-02-22 11:53:25,171 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-02-22 11:53:25,189 p=6906 u=marwiesing n=ansible | ok: [debian-1]
+2025-02-22 11:53:25,270 p=6906 u=marwiesing n=ansible | ok: [rocky-1]
+2025-02-22 11:53:25,279 p=6906 u=marwiesing n=ansible | TASK [Show swap status] **********************************************************************************************************************************************************************************************************************
+2025-02-22 11:53:25,335 p=6906 u=marwiesing n=ansible | ok: [ubuntu-2] => 
+  msg: |2-
+                   total        used        free      shared  buff/cache   available
+    Mem:           7.8Gi       490Mi       5.5Gi       772Ki       2.0Gi       7.3Gi
+    Swap:             0B          0B          0B
+2025-02-22 11:53:25,343 p=6906 u=marwiesing n=ansible | ok: [rocky-1] => 
+  msg: |2-
+                   total        used        free      shared  buff/cache   available
+    Mem:           7.5Gi       505Mi       6.5Gi       8.0Mi       813Mi       7.0Gi
+    Swap:             0B          0B          0B
+2025-02-22 11:53:25,344 p=6906 u=marwiesing n=ansible | ok: [debian-1] => 
+  msg: |2-
+                   total        used        free      shared  buff/cache   available
+    Mem:           7.8Gi       943Mi       5.9Gi       8.2Mi       1.2Gi       6.8Gi
+    Swap:             0B          0B          0B
+2025-02-22 11:53:25,349 p=6906 u=marwiesing n=ansible | TASK [Join the Kubernetes Cluster] ***********************************************************************************************************************************************************************************************************
+2025-02-22 11:53:25,878 p=6906 u=marwiesing n=ansible | fatal: [ubuntu-2]: FAILED! => changed=true 
+  cmd:
+  - kubeadm
+  - join
+  - 192.168.0.100:6443
+  - --token
+  - u6cul7.m0sjchh42mx6zyur
+  - --discovery-token-ca-cert-hash
+  - sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed
+  delta: '0:00:00.140016'
+  end: '2025-02-22 10:53:25.943186'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-02-22 10:53:25.803170'
+  stderr: |-
+    error execution phase kubelet-start: a Node with name "ubuntu2" and status "Ready" already exists in the cluster. You must delete the existing Node or change the name of this new joining Node
+    To see the stack trace of this error execute with --v=5 or higher
+  stderr_lines: <omitted>
+  stdout: |-
+    [preflight] Running pre-flight checks
+    [preflight] Reading configuration from the "kubeadm-config" ConfigMap in namespace "kube-system"...
+    [preflight] Use 'kubeadm init phase upload-config --config your-config.yaml' to re-upload it.
+  stdout_lines: <omitted>
+2025-02-22 11:53:26,726 p=6906 u=marwiesing n=ansible | changed: [debian-1]
+2025-02-22 11:53:27,199 p=6906 u=marwiesing n=ansible | changed: [rocky-1]
+2025-02-22 11:53:27,228 p=6906 u=marwiesing n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+2025-02-22 11:53:27,228 p=6906 u=marwiesing n=ansible | debian-1                   : ok=12   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:53:27,229 p=6906 u=marwiesing n=ansible | rocky-1                    : ok=12   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-02-22 11:53:27,229 p=6906 u=marwiesing n=ansible | ubuntu-2                   : ok=11   changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

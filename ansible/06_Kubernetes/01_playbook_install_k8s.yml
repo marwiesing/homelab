@@ -1,0 +1,16 @@
+---
+- name: Install Kubernetes (K8s) on All Nodes
+  hosts: all
+  become: yes
+  vars:
+    kubernetes_version: "1.32"
+    kubernetes_role: "worker" # Default role for all nodes
+
+  tasks:
+  - name: Set Control Plane role for Ubuntu-1
+    set_fact:
+      kubernetes_role: "control-plane"
+    when: inventory_hostname == "ubuntu-1"
+
+  roles:
+  - geerlingguy.kubernetes

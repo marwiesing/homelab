@@ -1,0 +1,43 @@
+---
+- name: Install Docker on Linux Mint
+  hosts: localhost
+  become: yes
+  vars:
+    docker_ubuntu_release: "focal" # Change this if using a newer Linux Mint
+
+  tasks:
+  - name: Install required dependencies
+    apt:
+      name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      state: present
+      update_cache: yes
+
+  - name: Add Docker GPG Key
+    shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+  - name: Add Docker repository (forcing Ubuntu repo)
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ docker_ubuntu_release }} stable"
+      state: present
+
+  - name: Install Docker
+    apt:
+      name: docker-ce
+      state: present
+      update_cache: yes
+
+  - name: Add user marwiesing to the docker group
+    user:
+      name: marwiesing
+      groups: docker
+      append: yes
+
+  - name: Enable and start Docker service
+    systemd:
+      name: docker
+      enabled: yes
+      state: started

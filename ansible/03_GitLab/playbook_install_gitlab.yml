@@ -1,0 +1,6 @@
+---
+- name: Install GitLab on Ubuntu-01
+  hosts: ubuntu-01
+  become: yes
+  roles:
+  - geerlingguy.gitlab

@@ -1,0 +1,69 @@
+---
+- name: Reset and Fix Kubernetes Worker Nodes Before Joining the Cluster
+  hosts: worker_nodes
+  become: yes
+
+  tasks:
+  - name: Ensure kubeadm is installed
+    package:
+      name: kubeadm
+      state: present
+
+  - name: Reset Kubernetes on worker nodes
+    command: kubeadm reset -f
+    ignore_errors: yes
+
+  - name: Remove old Kubernetes configurations
+    file:
+      path: "{{ item }}"
+      state: absent
+    loop:
+    - /etc/kubernetes
+    - /var/lib/etcd
+
+  - name: Ensure containerd directory exists
+    file:
+      path: /etc/containerd
+      state: directory
+      mode: '0755'
+
+  - name: Configure containerd for Kubernetes
+    shell: |
+      containerd config default > /etc/containerd/config.toml
+      sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+    args:
+      creates: /etc/containerd/config.toml
+
+  - name: Restart containerd and kubelet
+    systemd:
+      name: "{{ item }}"
+      state: restarted
+      enabled: yes
+    loop:
+    - containerd
+    - kubelet
+
+  - name: Disable swap temporarily
+    command: swapoff -a
+    ignore_errors: yes
+
+  - name: Remove swap from /etc/fstab (Permanent Fix)
+    replace:
+      path: /etc/fstab
+      regexp: '.*swap.*'
+      replace: ''
+
+  - name: Verify swap is disabled
+    command: free -h
+    register: swap_status
+    changed_when: false
+
+  - name: Show swap status
+    debug:
+      msg: "{{ swap_status.stdout }}"
+
+  - name: Join the Kubernetes Cluster
+    command: >
+      kubeadm join 192.168.0.100:6443 --token u6cul7.m0sjchh42mx6zyur --discovery-token-ca-cert-hash sha256:72d25713808b6eb2ab05b386cb898700a95d3efd2c17512a4ae6b6153217a0ed 
+    args:
+      creates: /etc/kubernetes/kubelet.conf

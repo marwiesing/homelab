@@ -1,0 +1,47 @@
+---
+- name: Repair Kubernetes services after reboot on all nodes
+  hosts: all
+  become: yes
+  tasks:
+  - name: Ensure /run/systemd/resolve directory exists
+    file:
+      path: /run/systemd/resolve
+      state: directory
+      mode: '0755'
+
+  - name: Ensure /run/systemd/resolve/resolv.conf is a symlink to /etc/resolv.conf
+    file:
+      path: /run/systemd/resolve/resolv.conf
+      state: link
+      src: /etc/resolv.conf
+      force: yes
+
+  - name: Restart containerd service
+    ansible.builtin.systemd:
+      name: containerd
+      state: restarted
+
+  - name: Restart kubelet service
+    ansible.builtin.systemd:
+      name: kubelet
+      state: restarted
+
+- name: Verify control plane API server health
+  hosts: control_plane
+  become: yes
+  tasks:
+  - name: Pause for services to stabilize
+    pause:
+      seconds: 5
+
+  - name: Check API server health endpoint
+    uri:
+      url: https://192.168.0.100:6443/healthz
+      method: GET
+      validate_certs: no
+      return_content: yes
+    register: api_health
+
+  - name: Display API health response
+    debug:
+      msg: "Control plane API server health: {{ api_health.content }}"

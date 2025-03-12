@@ -856,3 +856,115 @@ The offending line appears to be:
 2025-02-23 18:02:59,278 p=3004 u=marwiesing n=ansible | rocky-1                    : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2025-02-23 18:02:59,278 p=3004 u=marwiesing n=ansible | ubuntu-1                   : ok=9    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2025-02-23 18:02:59,278 p=3004 u=marwiesing n=ansible | ubuntu-2                   : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:13:45,249 p=2147343 u=marwiesing n=ansible | PLAY [Repair Kubernetes services after reboot on all nodes] ***********************************************************************************************************************************************************************************
+2025-03-02 13:13:45,261 p=2147343 u=marwiesing n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************************************************************
+2025-03-02 13:13:46,006 p=2147343 u=marwiesing n=ansible | fatal: [ubuntu-2]: FAILED! => 
+  msg: Missing sudo password
+2025-03-02 13:13:46,059 p=2147343 u=marwiesing n=ansible | fatal: [ubuntu-1]: FAILED! => 
+  msg: Missing sudo password
+2025-03-02 13:13:47,017 p=2147343 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-02 13:13:47,044 p=2147343 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-02 13:13:47,066 p=2147343 u=marwiesing n=ansible | TASK [Ensure /run/systemd/resolve directory exists] *******************************************************************************************************************************************************************************************
+2025-03-02 13:13:47,498 p=2147343 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-02 13:13:47,588 p=2147343 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-02 13:13:47,595 p=2147343 u=marwiesing n=ansible | TASK [Ensure /run/systemd/resolve/resolv.conf is a symlink to /etc/resolv.conf] ***************************************************************************************************************************************************************
+2025-03-02 13:13:47,915 p=2147343 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-02 13:13:47,980 p=2147343 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-02 13:13:47,989 p=2147343 u=marwiesing n=ansible | TASK [Restart containerd service] *************************************************************************************************************************************************************************************************************
+2025-03-02 13:13:49,050 p=2147343 u=marwiesing n=ansible | changed: [debian-1]
+2025-03-02 13:13:49,121 p=2147343 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-02 13:13:49,128 p=2147343 u=marwiesing n=ansible | TASK [Restart kubelet service] ****************************************************************************************************************************************************************************************************************
+2025-03-02 13:13:49,673 p=2147343 u=marwiesing n=ansible | changed: [debian-1]
+2025-03-02 13:13:49,714 p=2147343 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-02 13:13:49,842 p=2147343 u=marwiesing n=ansible | PLAY [Verify control plane API server health] *************************************************************************************************************************************************************************************************
+2025-03-02 13:13:49,851 p=2147343 u=marwiesing n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************************************************************
+2025-03-02 13:13:49,852 p=2147343 u=marwiesing n=ansible | debian-1                   : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:13:49,852 p=2147343 u=marwiesing n=ansible | rocky-1                    : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:13:49,852 p=2147343 u=marwiesing n=ansible | ubuntu-1                   : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:13:49,853 p=2147343 u=marwiesing n=ansible | ubuntu-2                   : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:14:15,536 p=2147660 u=marwiesing n=ansible | PLAY [Repair Kubernetes services after reboot on all nodes] ***********************************************************************************************************************************************************************************
+2025-03-02 13:14:15,543 p=2147660 u=marwiesing n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************************************************************
+2025-03-02 13:14:16,793 p=2147660 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-02 13:14:16,967 p=2147660 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-02 13:14:17,015 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-02 13:14:17,135 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-02 13:14:17,178 p=2147660 u=marwiesing n=ansible | TASK [Ensure /run/systemd/resolve directory exists] *******************************************************************************************************************************************************************************************
+2025-03-02 13:14:17,646 p=2147660 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-02 13:14:17,701 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-02 13:14:17,732 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-02 13:14:17,753 p=2147660 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-02 13:14:17,761 p=2147660 u=marwiesing n=ansible | TASK [Ensure /run/systemd/resolve/resolv.conf is a symlink to /etc/resolv.conf] ***************************************************************************************************************************************************************
+2025-03-02 13:14:18,185 p=2147660 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-03-02 13:14:18,228 p=2147660 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-02 13:14:18,249 p=2147660 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-03-02 13:14:18,303 p=2147660 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-02 13:14:18,312 p=2147660 u=marwiesing n=ansible | TASK [Restart containerd service] *************************************************************************************************************************************************************************************************************
+2025-03-02 13:14:19,478 p=2147660 u=marwiesing n=ansible | changed: [debian-1]
+2025-03-02 13:14:19,515 p=2147660 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-02 13:14:19,584 p=2147660 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-03-02 13:14:19,705 p=2147660 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-03-02 13:14:19,714 p=2147660 u=marwiesing n=ansible | TASK [Restart kubelet service] ****************************************************************************************************************************************************************************************************************
+2025-03-02 13:14:20,397 p=2147660 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-03-02 13:14:20,521 p=2147660 u=marwiesing n=ansible | changed: [debian-1]
+2025-03-02 13:14:20,542 p=2147660 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-03-02 13:14:20,572 p=2147660 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-02 13:14:20,737 p=2147660 u=marwiesing n=ansible | PLAY [Verify control plane API server health] *************************************************************************************************************************************************************************************************
+2025-03-02 13:14:20,766 p=2147660 u=marwiesing n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************************************************************
+2025-03-02 13:14:21,856 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-02 13:14:21,871 p=2147660 u=marwiesing n=ansible | TASK [Pause for services to stabilize] ********************************************************************************************************************************************************************************************************
+2025-03-02 13:14:21,882 p=2147660 u=marwiesing n=ansible | Pausing for 5 seconds
+2025-03-02 13:14:21,883 p=2147660 u=marwiesing n=ansible | (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2025-03-02 13:14:26,886 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-02 13:14:26,892 p=2147660 u=marwiesing n=ansible | TASK [Check API server health endpoint] *******************************************************************************************************************************************************************************************************
+2025-03-02 13:14:27,488 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-02 13:14:27,497 p=2147660 u=marwiesing n=ansible | TASK [Display API health response] ************************************************************************************************************************************************************************************************************
+2025-03-02 13:14:27,515 p=2147660 u=marwiesing n=ansible | ok: [ubuntu-1] => 
+  msg: 'Control plane API server health: ok'
+2025-03-02 13:14:27,556 p=2147660 u=marwiesing n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************************************************************
+2025-03-02 13:14:27,556 p=2147660 u=marwiesing n=ansible | debian-1                   : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:14:27,556 p=2147660 u=marwiesing n=ansible | rocky-1                    : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:14:27,556 p=2147660 u=marwiesing n=ansible | ubuntu-1                   : ok=9    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-02 13:14:27,557 p=2147660 u=marwiesing n=ansible | ubuntu-2                   : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-11 16:18:01,953 p=7630 u=marwiesing n=ansible | PLAY [Repair Kubernetes services after reboot on all nodes] **************************************************************************************************************************************************************************************************
+2025-03-11 16:18:01,966 p=7630 u=marwiesing n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:03,767 p=7630 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-11 16:18:03,893 p=7630 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-11 16:18:03,913 p=7630 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-11 16:18:04,023 p=7630 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-11 16:18:04,076 p=7630 u=marwiesing n=ansible | TASK [Ensure /run/systemd/resolve directory exists] **********************************************************************************************************************************************************************************************************
+2025-03-11 16:18:04,559 p=7630 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-11 16:18:04,613 p=7630 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-11 16:18:04,628 p=7630 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-11 16:18:04,663 p=7630 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-11 16:18:04,670 p=7630 u=marwiesing n=ansible | TASK [Ensure /run/systemd/resolve/resolv.conf is a symlink to /etc/resolv.conf] ******************************************************************************************************************************************************************************
+2025-03-11 16:18:05,136 p=7630 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-03-11 16:18:05,182 p=7630 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-11 16:18:05,183 p=7630 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-03-11 16:18:05,244 p=7630 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-11 16:18:05,254 p=7630 u=marwiesing n=ansible | TASK [Restart containerd service] ****************************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:06,351 p=7630 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-11 16:18:06,507 p=7630 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-03-11 16:18:06,595 p=7630 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-03-11 16:18:06,673 p=7630 u=marwiesing n=ansible | changed: [debian-1]
+2025-03-11 16:18:06,681 p=7630 u=marwiesing n=ansible | TASK [Restart kubelet service] *******************************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:07,310 p=7630 u=marwiesing n=ansible | changed: [ubuntu-2]
+2025-03-11 16:18:07,366 p=7630 u=marwiesing n=ansible | changed: [ubuntu-1]
+2025-03-11 16:18:07,507 p=7630 u=marwiesing n=ansible | changed: [rocky-1]
+2025-03-11 16:18:07,530 p=7630 u=marwiesing n=ansible | changed: [debian-1]
+2025-03-11 16:18:07,665 p=7630 u=marwiesing n=ansible | PLAY [Verify control plane API server health] ****************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:07,675 p=7630 u=marwiesing n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:08,769 p=7630 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-11 16:18:08,786 p=7630 u=marwiesing n=ansible | TASK [Pause for services to stabilize] ***********************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:08,809 p=7630 u=marwiesing n=ansible | Pausing for 5 seconds
+2025-03-11 16:18:08,810 p=7630 u=marwiesing n=ansible | (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+2025-03-11 16:18:13,814 p=7630 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-11 16:18:13,821 p=7630 u=marwiesing n=ansible | TASK [Check API server health endpoint] **********************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:14,402 p=7630 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-11 16:18:14,409 p=7630 u=marwiesing n=ansible | TASK [Display API health response] ***************************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:14,425 p=7630 u=marwiesing n=ansible | ok: [ubuntu-1] => 
+  msg: 'Control plane API server health: ok'
+2025-03-11 16:18:14,463 p=7630 u=marwiesing n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************************************************************************************
+2025-03-11 16:18:14,463 p=7630 u=marwiesing n=ansible | debian-1                   : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-11 16:18:14,463 p=7630 u=marwiesing n=ansible | rocky-1                    : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-11 16:18:14,464 p=7630 u=marwiesing n=ansible | ubuntu-1                   : ok=9    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-03-11 16:18:14,464 p=7630 u=marwiesing n=ansible | ubuntu-2                   : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

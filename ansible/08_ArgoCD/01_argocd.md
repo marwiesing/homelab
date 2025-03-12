@@ -1,14 +1,19 @@
 ```bash
+
 marwiesing@ubuntu:~$ helm version
 version.BuildInfo{Version:"v3.17.1", GitCommit:"980d8ac1939e39138101364400756af2bdee1da5", GitTreeState:"clean", GoVersion:"go1.23.5"}
+
 marwiesing@ubuntu:~$ helm repo add argo https://argoproj.github.io/argo-helm
 "argo" has been added to your repositories
+
 marwiesing@ubuntu:~$ helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "argo" chart repository
 Update Complete. ⎈Happy Helming!⎈
+
 marwiesing@ubuntu:~$ kubectl create namespace argocd
 namespace/argocd created
+
 marwiesing@ubuntu:~$ helm install argocd argo/argo-cd --namespace argocd
 NAME: argocd
 LAST DEPLOYED: Sat Feb 22 20:10:30 2025
@@ -57,4 +62,5 @@ argocd-server                      NodePort    10.104.199.254   <none>        80
 
 marwiesing@ubuntu:~$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 SR-gCeJKOUPEhlIN
+Xcfv8rm9VWvCWOIh -- new
 ```

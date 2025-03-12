@@ -177,3 +177,68 @@ failed to list refs: dial tcp: lookup gitlab.ubuntu-01.local on 10.96.0.10:53: n
    ```
 
 This updated guideline ensures a reliable and structured way to add new GitLab repositories to ArgoCD while handling minimal container environments. 🚀
+
+
+
+
+---
+
+### 🔍 **Issue: ArgoCD Rejecting Absolute Path (`/`)**  
+The error:  
+```sh
+rpc error: code = InvalidArgument desc = application spec for my-app is invalid: InvalidSpecError: Unable to generate manifests in /: rpc error: code = Unknown desc = /: app path is absolute
+```
+ArgoCD **does not accept absolute paths (`/`)** when specifying the `--path` argument.
+
+---
+
+### ✅ **Solution: Use a Relative Path**  
+Instead of `/`, you need to specify the relative path **inside your Git repository** where the Kubernetes manifests (YAML files) exist.
+
+### 🔧 **Steps to Fix**
+1. **Verify your repository structure**  
+   Check where your Kubernetes manifests (`deployment.yaml`, `service.yaml`, `kustomization.yaml`, etc.) are located:
+   ```sh
+   git clone git@192.168.0.100:homelab/signature_project.git
+   cd signature_project
+   tree -L 2
+   ```
+   Example output:
+   ```
+   .
+   ├── manifests
+   │   ├── deployment.yaml
+   │   ├── service.yaml
+   │   ├── kustomization.yaml
+   ├── README.md
+   ├── some-other-folder
+   ```
+
+2. **Use the correct path**  
+   If your YAML files are inside `manifests/`, then update your command:
+   ```sh
+   argocd app create signature_project \
+     --repo git@192.168.0.100:homelab/signature_project.git \
+     --path manifests \
+     --dest-server https://kubernetes.default.svc \
+     --dest-namespace default
+   ```
+
+3. **Verify the application status**  
+   ```sh
+   argocd app get signature_project
+   ```
+
+4. **Sync the application**  
+   ```sh
+   argocd app sync signature_project
+   ```
+
+---
+
+### 🔥 **Next Steps**
+- Ensure your **repository has Kubernetes manifests** in a structured folder.
+- Use **a relative path** in the `--path` argument.
+- Run `argocd app get <app-name>` to check if ArgoCD successfully detects your app.
+
+🚀 Now ArgoCD should correctly pull and deploy your manifests!

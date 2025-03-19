@@ -1,0 +1,27 @@
+---
+- name: Ensure all servers have the correct timezone (Europe/Vienna)
+  hosts: all
+  become: true
+  tasks:
+
+  - name: Get the current system timezone
+    command: timedatectl show --property=Timezone --value
+    register: current_timezone
+    changed_when: false
+
+  - name: Debug current timezone
+    debug:
+      msg: "Current timezone is {{ current_timezone.stdout }}"
+
+  - name: Set timezone to Europe/Vienna if incorrect
+    command: timedatectl set-timezone Europe/Vienna
+    when: current_timezone.stdout != "Europe/Vienna"
+
+  - name: Verify new timezone setting
+    command: timedatectl show --property=Timezone --value
+    register: new_timezone
+    changed_when: false
+
+  - name: Debug new timezone
+    debug:
+      msg: "New timezone is {{ new_timezone.stdout }}"

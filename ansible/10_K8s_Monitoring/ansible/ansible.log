@@ -1,0 +1,44 @@
+2025-03-18 17:30:53,299 p=304360 u=marwiesing n=ansible | PLAY [Ensure all servers have the correct timezone (Europe/Vienna)] ******************************************************************************************************************************************************************************************
+2025-03-18 17:30:53,306 p=304360 u=marwiesing n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:55,129 p=304360 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-18 17:30:55,135 p=304360 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-18 17:30:55,314 p=304360 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-18 17:30:55,932 p=304360 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-18 17:30:56,012 p=304360 u=marwiesing n=ansible | TASK [Get the current system timezone] ***********************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:56,653 p=304360 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-18 17:30:56,670 p=304360 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-18 17:30:56,681 p=304360 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-18 17:30:56,749 p=304360 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-18 17:30:56,757 p=304360 u=marwiesing n=ansible | TASK [Debug current timezone] ********************************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:56,797 p=304360 u=marwiesing n=ansible | ok: [ubuntu-1] => 
+  msg: Current timezone is Europe/Vienna
+2025-03-18 17:30:56,862 p=304360 u=marwiesing n=ansible | ok: [ubuntu-2] => 
+  msg: Current timezone is Europe/Vienna
+2025-03-18 17:30:56,863 p=304360 u=marwiesing n=ansible | ok: [rocky-1] => 
+  msg: Current timezone is Europe/Vienna
+2025-03-18 17:30:56,877 p=304360 u=marwiesing n=ansible | ok: [debian-1] => 
+  msg: Current timezone is Europe/Vienna
+2025-03-18 17:30:56,886 p=304360 u=marwiesing n=ansible | TASK [Set timezone to Europe/Vienna if incorrect] ************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:56,933 p=304360 u=marwiesing n=ansible | skipping: [ubuntu-1]
+2025-03-18 17:30:56,955 p=304360 u=marwiesing n=ansible | skipping: [ubuntu-2]
+2025-03-18 17:30:56,958 p=304360 u=marwiesing n=ansible | skipping: [rocky-1]
+2025-03-18 17:30:56,967 p=304360 u=marwiesing n=ansible | skipping: [debian-1]
+2025-03-18 17:30:56,979 p=304360 u=marwiesing n=ansible | TASK [Verify new timezone setting] ***************************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:57,445 p=304360 u=marwiesing n=ansible | ok: [ubuntu-2]
+2025-03-18 17:30:57,495 p=304360 u=marwiesing n=ansible | ok: [debian-1]
+2025-03-18 17:30:57,505 p=304360 u=marwiesing n=ansible | ok: [ubuntu-1]
+2025-03-18 17:30:57,534 p=304360 u=marwiesing n=ansible | ok: [rocky-1]
+2025-03-18 17:30:57,550 p=304360 u=marwiesing n=ansible | TASK [Debug new timezone] ************************************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:57,662 p=304360 u=marwiesing n=ansible | ok: [ubuntu-1] => 
+  msg: New timezone is Europe/Vienna
+2025-03-18 17:30:57,663 p=304360 u=marwiesing n=ansible | ok: [ubuntu-2] => 
+  msg: New timezone is Europe/Vienna
+2025-03-18 17:30:57,666 p=304360 u=marwiesing n=ansible | ok: [rocky-1] => 
+  msg: New timezone is Europe/Vienna
+2025-03-18 17:30:57,684 p=304360 u=marwiesing n=ansible | ok: [debian-1] => 
+  msg: New timezone is Europe/Vienna
+2025-03-18 17:30:57,821 p=304360 u=marwiesing n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************************************************************************************
+2025-03-18 17:30:57,821 p=304360 u=marwiesing n=ansible | debian-1                   : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-03-18 17:30:57,821 p=304360 u=marwiesing n=ansible | rocky-1                    : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-03-18 17:30:57,821 p=304360 u=marwiesing n=ansible | ubuntu-1                   : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2025-03-18 17:30:57,822 p=304360 u=marwiesing n=ansible | ubuntu-2                   : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

@@ -1,0 +1,72 @@
+---
+- name: Patch Kubernetes DaemonSet and Service
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+  - name: Patch DaemonSet
+    ansible.builtin.command:
+      cmd: >
+        kubectl patch daemonset -n monitoring prometheus-prometheus-node-exporter --type='json' -p='[
+          {"op": "replace", "path": "/spec/template/spec/containers/0/livenessProbe/httpGet/port", "value": 19100},
+          {"op": "replace", "path": "/spec/template/spec/containers/0/readinessProbe/httpGet/port", "value": 19100},
+          {"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/containerPort", "value": 19100},
+          {"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/name", "value": "metrics-19100"}
+        ]'
+    register: daemonset_patch_result
+    changed_when: "'patched' in daemonset_patch_result.stdout"
+
+  - name: Restart DaemonSet Pods
+    ansible.builtin.command:
+      cmd: kubectl rollout restart daemonset -n monitoring prometheus-prometheus-node-exporter
+    register: restart_result
+    changed_when: "'restarted' in restart_result.stdout"
+
+  - name: Patch Service
+    ansible.builtin.command:
+      cmd: >
+        kubectl patch service -n monitoring prometheus-prometheus-node-exporter --type='json' -p='[
+          {"op": "replace", "path": "/spec/ports/0/port", "value": 19100},
+          {"op": "replace", "path": "/spec/ports/0/targetPort", "value": 19100}
+        ]'
+    register: service_patch_result
+    changed_when: "'patched' in service_patch_result.stdout"
+
+  - name: Wait for Pods to stabilize
+    ansible.builtin.command: kubectl get pods -n monitoring
+    register: pod_status
+    changed_when: false
+
+  - name: Identify CrashLoopBackOff Pods
+    ansible.builtin.set_fact:
+      failed_pods: "{{ pod_status.stdout_lines | select('search', 'CrashLoopBackOff') | map('split') | map(attribute=0) | list }}"
+
+  - name: Delete failed Pods
+    ansible.builtin.command:
+      cmd: kubectl delete pod -n monitoring {{ item }}
+    loop: "{{ failed_pods }}"
+    when: failed_pods | length > 0
+
+  - name: Wait for Pods to be ready
+    ansible.builtin.command: kubectl wait --for=condition=Ready pod --all -n monitoring --timeout=60s
+    register: wait_result
+    changed_when: false
+    ignore_errors: yes
+
+  - name: Check Endpoints
+    ansible.builtin.command: kubectl get endpoints -n monitoring prometheus-prometheus-node-exporter
+    register: endpoints_result
+    changed_when: false
+
+  - name: Get final list of Pods
+    ansible.builtin.command: kubectl get pods -n monitoring -o wide
+    register: pods_result
+    changed_when: false
+
+  - name: Display final results
+    ansible.builtin.debug:
+      msg:
+      - "Endpoints:
+
+        {{ endpoints_result.stdout }}"
+      - "Pods:\n{{ pods_result.stdout }}"

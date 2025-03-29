@@ -1,0 +1,37 @@
+---
+- name: Rolling reboot of Kubernetes worker nodes
+  hosts: worker_nodes
+  become: true
+  serial: 1 # one node at a time
+  any_errors_fatal: true
+
+  tasks:
+
+  - name: Capture current hostname
+    command: hostname
+    register: hostname_result
+
+  - name: Notify reboot start
+    debug:
+      msg: "🔄 Rebooting {{ inventory_hostname }} ({{ hostname_result.stdout }})..."
+
+  - name: Reboot the node
+    reboot:
+      reboot_timeout: 600
+      test_command: whoami
+
+  - name: Wait for node to be Ready in Kubernetes
+    delegate_to: ubuntu-1
+    become: false
+    vars:
+      node_name: "{{ hostname_result.stdout }}"
+    retries: 20
+    delay: 15
+    until: node_status.stdout.find('Ready') != -1
+    run_once: false
+    shell: kubectl get nodes {{ node_name }} --no-headers | awk '{print $2}'
+    register: node_status
+
+  - name: Confirm node is Ready
+    debug:
+      msg: "✅ Node {{ inventory_hostname }} is Ready."

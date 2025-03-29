@@ -1,0 +1,31 @@
+---
+- name: Disable swap on Kubernetes nodes
+  hosts: control_plane,worker_nodes
+  become: true
+  tasks:
+
+  - name: Disable swap immediately
+    command: swapoff -a
+    when: ansible_swaptotal_mb > 0
+
+  - name: Comment out swapfile line in fstab
+    lineinfile:
+      path: /etc/fstab
+      regexp: '^/swapfile'
+      line: '# /swapfile none swap sw 0 0'
+      backup: yes
+
+  - name: Ensure kubelet service is restarted
+    systemd:
+      name: kubelet
+      state: restarted
+      enabled: true
+
+  - name: Display confirmation
+    shell: |
+      echo "\n==> Current swap status:" && free -h && echo "\n==> Current kubelet status:" && systemctl is-active kubelet
+    register: swap_check
+
+  - name: Show results
+    debug:
+      msg: "{{ swap_check.stdout }}"

@@ -1,0 +1,22 @@
+---
+- name: Extend logical volume
+  hosts: all
+  become: true
+  tasks:
+  - name: Gather LVM facts
+    ansible.builtin.command: vgs --noheadings -o vg_name,vg_free
+    register: vg_info
+    changed_when: false
+
+  - name: Parse volume group information
+    ansible.builtin.set_fact:
+      vg_name: "{{ vg_info.stdout.split()[0] }}"
+      vg_free: "{{ vg_info.stdout.split()[1] }}"
+
+  - name: Extend logical volume
+    community.general.lvol:
+      vg: "{{ vg_name }}"
+      lv: root
+      size: +{{ vg_free }}
+      resizefs: true
+    when: vg_free != '0'

@@ -12,80 +12,9 @@
           {"op": "replace", "path": "/spec/template/spec/containers/0/readinessProbe/httpGet/port", "value": 19100},
           {"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/containerPort", "value": 19100},
           {"op": "replace", "path": "/spec/template/spec/containers/0/ports/0/name", "value": "metrics-19100"}
-        ]'        
+        ]'
     register: daemonset_patch_result
     changed_when: "'patched' in daemonset_patch_result.stdout"
-    ignore_errors: false
-
-  - name: Check number of ports in DaemonSet container
-    ansible.builtin.command: >
-      kubectl get daemonset prometheus-prometheus-node-exporter -n monitoring -o jsonpath='{.spec.template.spec.containers[0].ports[*].containerPort}'
-    register: container_ports
-    changed_when: false
-
-  - name: Remove duplicate port definition from DaemonSet if it exists
-    ansible.builtin.command: >
-      kubectl patch daemonset prometheus-prometheus-node-exporter -n monitoring --type=json -p='[{"op": "remove", "path": "/spec/template/spec/containers/0/ports/1"}]'
-    when: container_ports.stdout.split() | length > 1
-    register: remove_duplicate_port
-    changed_when: "'patched' in remove_duplicate_port.stdout or remove_duplicate_port.rc == 0"
-    ignore_errors: false
-
-  - name: Check number of args in DaemonSet container
-    ansible.builtin.command: >
-      kubectl get daemonset prometheus-prometheus-node-exporter -n monitoring -o jsonpath='{.spec.template.spec.containers[0].args}'
-    register: container_args
-    changed_when: false
-
-  - name: Remove invalid arg from DaemonSet if it exists
-    ansible.builtin.command: >
-      kubectl patch daemonset prometheus-prometheus-node-exporter -n monitoring --type=json -p='[{"op": "remove", "path": "/spec/template/spec/containers/0/args/4"}]'
-    when: container_args.stdout | from_yaml | length > 4
-    register: remove_invalid_arg
-    changed_when: "'patched' in remove_invalid_arg.stdout or remove_invalid_arg.rc == 0"
-    ignore_errors: false
-
-  - name: Add valid --web.listen-address=:19100 if not present
-    ansible.builtin.command: >
-      kubectl patch daemonset prometheus-prometheus-node-exporter -n monitoring --type=json -p='[
-        {
-          "op": "add",
-          "path": "/spec/template/spec/containers/0/args/-",
-          "value": "--web.listen-address=:19100"
-        }
-      ]'
-    when: >
-      container_args.stdout | from_yaml is not search('--web.listen-address=:19100')
-    register: add_listen_address
-    changed_when: "'patched' in add_listen_address.stdout or add_listen_address.rc == 0"
-
-  - name: Patch DaemonSet with tolerations
-    ansible.builtin.command:
-      cmd: >
-        kubectl patch daemonset prometheus-prometheus-node-exporter -n monitoring --type=json -p='[
-          {
-            "op": "add",
-            "path": "/spec/template/spec/tolerations/-",
-            "value": {
-              "key": "node-role.kubernetes.io/control-plane",
-              "operator": "Exists",
-              "effect": "NoSchedule"
-            }
-          },
-          {
-            "op": "add",
-            "path": "/spec/template/spec/tolerations/-",
-            "value": {
-              "key": "key",
-              "value": "value",
-              "operator": "Equal",
-              "effect": "NoSchedule"
-            }
-          }
-        ]'
-    register: patch_tolerations_result
-    changed_when: "'patched' in patch_tolerations_result.stdout or patch_tolerations_result.rc == 0"
-    ignore_errors: false
 
   - name: Restart DaemonSet Pods
     ansible.builtin.command:

@@ -1,0 +1,46 @@
+---
+- name: Check disk usage and swap file presence
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Gather disk usage facts
+    ansible.builtin.command: df -h /
+    register: disk_usage
+
+  - name: Check if root filesystem is full
+    ansible.builtin.set_fact:
+      root_is_full: true
+    when: disk_usage.stdout_lines[1].split()[4].rstrip('%')|int > 90
+
+  - name: Fail if root filesystem is full
+    ansible.builtin.fail:
+      msg: "Root filesystem is more than 90% full!"
+    when: root_is_full | default(false)
+
+  - name: Check for active swap
+    ansible.builtin.command: swapon --show --noheadings --raw
+    register: swap_status
+    ignore_errors: true
+
+  - name: Set fact if swap is absent
+    ansible.builtin.set_fact:
+      swap_absent: true
+    when: swap_status.stdout == ""
+
+  - name: Show memory and swap overview
+    ansible.builtin.command: free -h
+    register: memory_output
+
+  - name: Show disk usage again
+    ansible.builtin.command: df -h /
+    register: disk_check
+
+  - name: Display overview
+    ansible.builtin.debug:
+      msg: |
+        Memory and Swap:
+        {{ memory_output.stdout }}
+
+        Root Disk Usage:
+        {{ disk_check.stdout }}
